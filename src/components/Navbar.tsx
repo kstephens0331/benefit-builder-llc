@@ -1,5 +1,5 @@
 ﻿import { NavLink } from "react-router-dom";
-import logo from "../public//images/benefit-builder-logo.jpg"; // <-- add your logo file to /src/assets
+import logo from "../public/images/benefit-builder-logo.jpg"; // <-- add your logo file to /src/assets
 
 export default function Navbar() {
   const base = "px-3 py-2 rounded-md text-sm font-medium";
