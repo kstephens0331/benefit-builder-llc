@@ -1,0 +1,18 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fontsource: load variable fonts */
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/lora/index.css";
+
+/* Map to your design tokens */
+:root{
+  --font-heading: "LoraVariable", "Lora", Georgia, serif;
+  --font-body: "InterVariable", "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+html { font-family: var(--font-body); }
+.font-heading { font-family: var(--font-heading); }
+
+/* (Optional) Smoother rendering */
+html, body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }

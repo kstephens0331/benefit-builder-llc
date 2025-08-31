@@ -1,0 +1,13 @@
+﻿@import "tailwindcss";
+@config "../../tailwind.config.cjs";
+
+/* your custom base rules */
+:root { color-scheme: light; --bg:#F5F1E6; --fg:#2E2E2E; }
+html, body, #root { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
