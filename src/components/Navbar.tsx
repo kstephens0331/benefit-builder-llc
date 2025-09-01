@@ -1,5 +1,5 @@
 ﻿import { NavLink } from "react-router-dom";
-import logo from "../../public/images/benefit-builder-logo.jpg"; // <-- add your logo file to /src/assets
+import logo from "../../public/images/benefit-builder-logo.png"; // <-- add your logo file to /src/assets
 
 export default function Navbar() {
   const base = "px-3 py-2 rounded-md text-sm font-medium";
@@ -13,7 +13,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="Benefit Builder LLC Logo"
-            className="h-9 w-9 object-contain"
+            className="h-12 w-12 object-contain"
           />
           <div className="font-heading text-lg tracking-wide text-brand-navy">
             Benefit Builder LLC

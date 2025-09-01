@@ -39,7 +39,7 @@ export default function Services() {
           <div className="md:col-span-2">
             <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
               {/* NEW image (already present previously) */}
-              <img src="/images/home-why-it-matters.jpg" alt="" className="w-full h-full object-cover" />
+              <img src="/images/benefit-builder-services-2.png" alt="" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="md:col-span-3">
@@ -89,7 +89,7 @@ export default function Services() {
       <section className="relative bg-brand-navy border-y border-brand-stone overflow-hidden" aria-label="Key stats">
         {/* NEW subtle overlay image */}
         <img
-          src="/images/services-stats-overlay.jpg"
+          src="/images/benefit-builder-services-3.png"
           alt=""
           className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
         />
@@ -130,7 +130,7 @@ export default function Services() {
           <div>
             <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
               {/* NEW image (replaces prior placeholder) */}
-              <img src="/images/services-process.jpg" alt="" className="w-full h-full object-cover" />
+              <img src="/images/benfit-builder-servces-4.png" alt="" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

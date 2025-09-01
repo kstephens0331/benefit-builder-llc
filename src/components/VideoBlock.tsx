@@ -20,7 +20,7 @@ type VProps = {
 };
 
 export default function VideoBlock({
-  src = "/video/services.mp4",
+  src = "public/images/benefit-builder-explainer.mp4",
   poster = "/images/workplace-stone.svg",
   caption,
   size = "full",
