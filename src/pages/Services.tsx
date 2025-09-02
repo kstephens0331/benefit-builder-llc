@@ -15,7 +15,10 @@ export default function Services() {
       </Helmet>
 
       {/* HERO — dedicated image */}
-      <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[380px]" aria-label="Services hero">
+      <section
+        className="relative overflow-hidden border-b border-brand-stone/60 min-h-[380px]"
+        aria-label="Services hero"
+      >
         <img
           src="/images/benefit-builder-services.jpg"
           alt=""
@@ -28,27 +31,44 @@ export default function Services() {
             Benefit programs employees understand—and businesses can sustain.
           </p>
           <div className="mt-6">
-            <CTARow primaryLabel="Contact Us" primaryTo="/contact" secondaryTo="#video" secondaryLabel="Watch Overview" />
+            <CTARow
+              primaryLabel="Contact Us"
+              primaryTo="/contact"
+              secondaryTo="#video"
+              secondaryLabel="Watch Overview"
+            />
           </div>
         </div>
       </section>
 
       {/* VALUE PROP — image + copy (alt shade) */}
-      <section className="bg-brand-sand/40 border-b border-brand-stone" aria-label="Why this approach works">
+      <section
+        className="bg-brand-sand/40 border-b border-brand-stone"
+        aria-label="Why this approach works"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-2">
             <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              {/* NEW image (already present previously) */}
-              <img src="/images/benefit-builder-services-2.png" alt="" className="w-full h-full object-cover" />
+              <img
+                src="/images/benefit-builder-services-2.png"
+                alt=""
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
           <div className="md:col-span-3">
-            <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">Why this works</p>
-            <h2 className="font-heading text-3xl text-brand-navy mt-2">Clarity for people, confidence for leaders</h2>
+            <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">
+              Why this works
+            </p>
+            <h2 className="font-heading text-3xl text-brand-navy mt-2">
+              Clarity for people, confidence for leaders
+            </h2>
             <div className="prose prose-neutral max-w-none mt-5">
               <p className="text-brand-charcoal/90">
-                We complement your existing plan with options that cover real-world gaps—paired with clear
-                communication and guided enrollment. Employees gain confidence; HR and leadership gain predictability.
+                We complement your existing plan with options that cover real-world gaps—paired
+                with clear communication and guided enrollment. Employees gain confidence; HR and
+                leadership gain predictability.
               </p>
               <ul>
                 <li>Plain-language guidance and simple choices.</li>
@@ -57,41 +77,49 @@ export default function Services() {
               </ul>
             </div>
             <div className="mt-6">
-              <CTARow primaryLabel="Discuss your goals" primaryTo="/contact" secondaryTo="/about" secondaryLabel="About our approach" />
+              <CTARow
+                primaryLabel="Discuss your goals"
+                primaryTo="/contact"
+                secondaryTo="/about"
+                secondaryLabel="About our approach"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* EXPLAINER VIDEO — 1/4 width + NEW supporting image */}
-<Section id="video" kicker="Explainer" title="Benefits, explained in 90–120 seconds" bg="white">
-  <div className="flex flex-col md:flex-row md:items-start md:gap-8">
-    <VideoBlock size="quarter" caption="A concise overview of who we are, how we work, and what to expect." />
-    <div className="mt-6 md:mt-1 md:flex-1">
-      <p className="text-brand-charcoal/90">
-        Watch this quick overview, then explore the specifics below. Our process stays simple: discovery,
-        tailored design, guided enrollment, and support all year.
-      </p>
-      <div className="mt-6">
-        <CTARow
-          align="left"
-          primaryLabel="Schedule a conversation"
-          primaryTo="/contact"
-          secondaryTo="/contact"
-          secondaryLabel="Request a callback"
-        />
-      </div>
-    </div>
-  </div>
-</Section>
+      {/* EXPLAINER VIDEO — 1/4 width + supporting copy */}
+      <Section id="video" kicker="Explainer" title="Benefits, explained in 90–120 seconds" bg="white">
+        <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+          <VideoBlock
+            size="quarter"
+            caption="A concise overview of who we are, how we work, and what to expect."
+          />
+          <div className="mt-6 md:mt-1 md:flex-1">
+            <p className="text-brand-charcoal/90">
+              Watch this quick overview, then explore the specifics below. Our process stays simple:
+              discovery, tailored design, guided enrollment, and support all year.
+            </p>
+            <div className="mt-6">
+              <CTARow
+                align="left"
+                primaryLabel="Schedule a conversation"
+                primaryTo="/contact"
+                secondaryTo="/contact"
+                secondaryLabel="Request a callback"
+              />
+            </div>
+          </div>
+        </div>
+      </Section>
 
-      {/* BLUE STATISTICS BAND — now with a subtle image overlay */}
+      {/* BLUE STATISTICS BAND — with subtle overlay */}
       <section className="relative bg-brand-navy border-y border-brand-stone overflow-hidden" aria-label="Key stats">
-        {/* NEW subtle overlay image */}
         <img
           src="/images/benefit-builder-services-3.png"
           alt=""
           className="absolute inset-0 w-full h-full object-top opacity-15 pointer-events-none"
+          loading="lazy"
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid gap-10 sm:grid-cols-3 text-center">
@@ -111,12 +139,14 @@ export default function Services() {
         </div>
       </section>
 
-      {/* HOW IT WORKS — text + NEW photo beside */}
+      {/* HOW IT WORKS — text + photo */}
       <section className="bg-white border-b border-brand-stone" aria-label="How it works">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
           <div>
             <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">Process</p>
-            <h3 className="font-heading text-3xl text-brand-navy mt-2">A straightforward path from discovery to support</h3>
+            <h3 className="font-heading text-3xl text-brand-navy mt-2">
+              A straightforward path from discovery to support
+            </h3>
             <ol className="mt-5 space-y-4 text-brand-charcoal/90">
               <li><strong>Discovery:</strong> align on goals, workforce profile, and plan pressures.</li>
               <li><strong>Design:</strong> model options balancing coverage, cost, and participation.</li>
@@ -124,19 +154,29 @@ export default function Services() {
               <li><strong>Support:</strong> renewals, vendor reviews, and compliance check-ins.</li>
             </ol>
             <div className="mt-6">
-              <CTARow primaryLabel="Start discovery" primaryTo="/contact" secondaryTo="#coverage" secondaryLabel="See coverage options" />
+              <CTARow
+                primaryLabel="Start discovery"
+                primaryTo="/contact"
+                secondaryTo="#coverage"
+                secondaryLabel="See coverage options"
+              />
             </div>
           </div>
           <div>
             <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              {/* NEW image (replaces prior placeholder) */}
-              <img src="/images/benefit-builder-servces-3.png" alt="" className="w-full h-full object-cover" />
+              {/* FIXED: services (not servces) */}
+              <img
+                src="/images/benefit-builder-services-3.png"
+                alt=""
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* COVERAGE OPTIONS — NEW photo added */}
+      {/* COVERAGE OPTIONS */}
       <Section id="coverage" kicker="Coverage Options" title="Fill the gaps that matter most" bg="sand">
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           <div className="md:col-span-2">
@@ -144,7 +184,7 @@ export default function Services() {
               We tailor a mix that complements your medical plan and reflects how your team actually uses benefits.
             </p>
             <ul className="mt-4">
-              <li>Life insurance (term & permanent)</li>
+              <li>Life insurance (term &amp; permanent)</li>
               <li>Accident coverage</li>
               <li>Critical illness</li>
               <li>Short-term disability</li>
@@ -152,18 +192,28 @@ export default function Services() {
               <li>Cancer support</li>
             </ul>
             <div className="mt-6">
-              <CTARow primaryLabel="Discuss coverage mix" primaryTo="/contact" secondaryTo="/about" secondaryLabel="How we think about design" />
+              <CTARow
+                primaryLabel="Discuss coverage mix"
+                primaryTo="/contact"
+                secondaryTo="/about"
+                secondaryLabel="How we think about design"
+              />
             </div>
           </div>
 
-          {/* NEW image block */}
+          {/* image block */}
           <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-            <img src="/images/benefit-builder-services-4.png" alt="" className="w-full h-full object-cover" />
+            <img
+              src="/images/benefit-builder-services-4.png"
+              alt=""
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
       </Section>
 
-      {/* EMPLOYER BENEFITS — NEW photo added */}
+      {/* EMPLOYER BENEFITS */}
       <section className="bg-brand-sand/30 border-y border-brand-stone" aria-label="For employers">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-3">
@@ -181,14 +231,25 @@ export default function Services() {
               </ul>
             </div>
             <div className="mt-6">
-              <CTARow primaryLabel="Get a quick analysis" primaryTo="/contact" secondaryTo="/contact" secondaryLabel="Request a callback" />
+              <CTARow
+                primaryLabel="Get a quick analysis"
+                primaryTo="/contact"
+                secondaryTo="/contact"
+                secondaryLabel="Request a callback"
+              />
             </div>
           </div>
 
-          {/* NEW image block */}
+          {/* image block */}
           <div className="md:col-span-2">
             <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              <img src="/images/benefits-builder-services-5.png" alt="" className="w-full h-full object-cover" />
+              {/* FIXED: benefit-builder (no extra s) */}
+              <img
+                src="/images/benefit-builder-services-5.png"
+                alt=""
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
