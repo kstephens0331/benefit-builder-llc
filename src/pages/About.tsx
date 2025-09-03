@@ -77,7 +77,10 @@ export default function About() {
           </div>
           <div>
             {/* Drop your AVIF/WEBP/JPG trio at /public/images/about-who-we-are-1.* */}
-            <ResponsiveImage base="/images/benefit-builder-about-2.png" alt="Team collaborating in a bright office" />
+            <ResponsiveImage
+  base="/images/benefit-builder-about-1.png"
+  alt="Team collaborating in a bright office"
+/>
           </div>
         </div>
       </section>
@@ -142,7 +145,10 @@ export default function About() {
           </div>
           <div className="order-1 md:order-2">
             {/* Drop your AVIF/WEBP/JPG trio at /public/images/about-process-1.* */}
-            <ResponsiveImage base="/images/benefit-builder-about-2.png" alt="Guided enrollment and benefits review" />
+            <ResponsiveImage
+  base="/images/benefit-builder-about-2.png"
+  alt="Guided enrollment and benefits review"
+/>
           </div>
         </div>
       </section>
