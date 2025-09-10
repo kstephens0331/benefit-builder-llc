@@ -2,6 +2,7 @@
 import Section from "../components/Section";
 import CTARow from "../components/CTARow";
 import VideoBlock from "../components/VideoBlock";
+import ResponsiveImage from "../components/ResponsiveImage";
 
 export default function Services() {
   return (
@@ -14,7 +15,7 @@ export default function Services() {
         />
       </Helmet>
 
-      {/* HERO — dedicated image */}
+      {/* HERO — full-bleed background image keeps <img> (decorative) */}
       <section
         className="relative overflow-hidden border-b border-brand-stone/60 min-h-[380px]"
         aria-label="Services hero"
@@ -23,6 +24,8 @@ export default function Services() {
           src="/images/benefit-builder-services.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -41,21 +44,17 @@ export default function Services() {
         </div>
       </section>
 
-      {/* VALUE PROP — image + copy (alt shade) */}
+      {/* VALUE PROP — image + copy (standardized image) */}
       <section
         className="bg-brand-sand/40 border-b border-brand-stone"
         aria-label="Why this approach works"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-2">
-            <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              <img
-                src="/images/benefit-builder-services-2.png"
-                alt=""
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ResponsiveImage
+              base="/images/benefit-builder-services-2"
+              alt="Advisors reviewing benefits options"
+            />
           </div>
           <div className="md:col-span-3">
             <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">
@@ -113,13 +112,15 @@ export default function Services() {
         </div>
       </Section>
 
-      {/* BLUE STATISTICS BAND — with subtle overlay */}
+      {/* BLUE STATISTICS BAND — subtle background overlay (decorative) */}
       <section className="relative bg-brand-navy border-y border-brand-stone overflow-hidden" aria-label="Key stats">
         <img
           src="/images/benefit-builder-services-3.png"
           alt=""
           className="absolute inset-0 w-full h-full object-top opacity-15 pointer-events-none"
           loading="lazy"
+          decoding="async"
+          aria-hidden="true"
         />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid gap-10 sm:grid-cols-3 text-center">
@@ -139,7 +140,7 @@ export default function Services() {
         </div>
       </section>
 
-      {/* HOW IT WORKS — text + photo */}
+      {/* HOW IT WORKS — text + standardized image */}
       <section className="bg-white border-b border-brand-stone" aria-label="How it works">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
           <div>
@@ -163,20 +164,15 @@ export default function Services() {
             </div>
           </div>
           <div>
-            <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              {/* FIXED: services (not servces) */}
-              <img
-                src="/images/benefit-builder-services-3.png"
-                alt=""
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ResponsiveImage
+              base="/images/benefit-builder-services-3"
+              alt="Team reviewing a benefits rollout plan"
+            />
           </div>
         </div>
       </section>
 
-      {/* COVERAGE OPTIONS */}
+      {/* COVERAGE OPTIONS — keep sand background */}
       <Section id="coverage" kicker="Coverage Options" title="Fill the gaps that matter most" bg="sand">
         <div className="grid gap-8 md:grid-cols-3 md:items-start">
           <div className="md:col-span-2">
@@ -201,20 +197,15 @@ export default function Services() {
             </div>
           </div>
 
-          {/* image block */}
-          <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-            <img
-              src="/images/benefit-builder-services-4.png"
-              alt=""
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          <ResponsiveImage
+            base="/images/benefit-builder-services-4"
+            alt="Coverage options illustration"
+          />
         </div>
       </Section>
 
-      {/* EMPLOYER BENEFITS */}
-      <section className="bg-brand-sand/30 border-y border-brand-stone" aria-label="For employers">
+      {/* EMPLOYER BENEFITS — WHITE background for alternation; use your new photo */}
+      <section className="bg-white border-y border-brand-stone" aria-label="For employers">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-3">
             <h3 className="font-heading text-3xl text-brand-navy">For Employers</h3>
@@ -240,17 +231,11 @@ export default function Services() {
             </div>
           </div>
 
-          {/* image block */}
           <div className="md:col-span-2">
-            <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white">
-              {/* FIXED: benefit-builder (no extra s) */}
-              <img
-                src="/images/benefit-builder-services-5.png"
-                alt=""
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            <ResponsiveImage
+              base="/images/benefit-builder-services-5"
+              alt="Leaders reviewing a benefits strategy"
+            />
           </div>
         </div>
       </section>

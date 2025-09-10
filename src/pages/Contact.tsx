@@ -13,12 +13,14 @@ export default function Contact() {
         />
       </Helmet>
 
-      {/* HERO */}
+      {/* HERO (full-bleed; decorative) */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[320px]" aria-label="Contact hero">
         <img
           src="/images/benefit-builder-contact.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-top"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -84,7 +86,7 @@ export default function Contact() {
             <h2 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h2>
             <p className="text-white/85 mt-1">Send the form and we’ll follow up shortly.</p>
           </div>
-          <div>
+          <div className="w-full md:w-auto">
             <CTARow primaryLabel="Contact Us" primaryTo="#top" />
           </div>
         </div>

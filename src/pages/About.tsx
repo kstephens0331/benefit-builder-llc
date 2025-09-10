@@ -44,6 +44,8 @@ export default function About() {
           src="/images/benefit-builder-about.jpg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover object-center"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -76,12 +78,11 @@ export default function About() {
             </div>
           </div>
           <div>
-            {/* Drop your AVIF/WEBP/JPG trio at /public/images/about-who-we-are-1.* */}
-<img
-  src="/images/benefit-builder-about-1.png"
-  alt="Team collaborating in a bright office"
-  className="w-full h-full object-cover rounded-2xl border border-brand-stone"
-/>
+            {/* Standardized image */}
+            <ResponsiveImage
+              base="/images/benefit-builder-about-1"
+              alt="Team collaborating in a bright office"
+            />
           </div>
         </div>
       </section>
@@ -145,12 +146,11 @@ export default function About() {
             </div>
           </div>
           <div className="order-1 md:order-2">
-            {/* Drop your AVIF/WEBP/JPG trio at /public/images/about-process-1.* */}
-<img
-  src="/images/benefit-builder-about-2.png"
-  alt="Team collaborating in a bright office"
-  className="w-full h-full object-cover rounded-2xl border border-brand-stone"
-/>
+            {/* Standardized image */}
+            <ResponsiveImage
+              base="/images/benefit-builder-about-2"
+              alt="Team collaborating in a bright office"
+            />
           </div>
         </div>
       </section>
@@ -190,7 +190,7 @@ export default function About() {
             </div>
           </div>
           <div className="md:col-span-2">
-            {/* Drop your AVIF/WEBP/JPG trio at /public/images/about-ethos-1.* */}
+            {/* Already standardized in your original file; leaving as-is */}
             <ResponsiveImage base="/images/about-ethos-1" alt="Leaders collaborating in a modern space" />
           </div>
         </div>

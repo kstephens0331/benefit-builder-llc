@@ -5,7 +5,7 @@ import CTARow from "../components/CTARow";
 import ProcessTimeline from "../components/ProcessTimeline";
 import TestimonialsBand from "../components/TestimonialsBand";
 import CtaBand from "../components/CtaBand";
-import Footer from "../components/Footer";
+import ResponsiveImage from "../components/ResponsiveImage";
 
 export default function Home() {
   return (
@@ -20,13 +20,12 @@ export default function Home() {
 
       {/* HERO — dedicated image per your request */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[520px]">
-  <img
-    src="/images/benefit-builder-home-hero.jpg"
-    alt=""
-    className="absolute inset-0 h-full w-full object-cover scale-80 object-center"
-  style={{ transformOrigin: "center" }}
-
-  />
+        <img
+          src="/images/benefit-builder-home-hero.jpg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          style={{ transformOrigin: "center" }}
+        />
         {/* layered gradient for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
@@ -65,7 +64,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUE PROPOSITION — asymmetrical media grid, no “cards” */}
+      {/* VALUE PROPOSITION — asymmetrical media grid, standardized image */}
       <section className="relative bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid gap-10 md:grid-cols-5 items-center">
@@ -77,14 +76,11 @@ export default function Home() {
               transition={{ duration: 0.45 }}
               className="md:col-span-2"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-brand-stone/50">
-                <img
-                  src="/images/workplace-stone.jpg"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-sand/40 to-transparent" />
-              </div>
+              <ResponsiveImage
+                base="/images/workplace-stone"
+                alt="Abstract workplace texture"
+                className="bg-brand-stone/50"
+              />
             </motion.div>
 
             {/* Copy column */}
@@ -165,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAM SPOTLIGHT — split layout with CTA */}
+      {/* PROGRAM SPOTLIGHT — standardized image */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
           <motion.div
@@ -208,16 +204,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.05 }}
-            className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-brand-stone bg-white p-4">
-              <img
-                src="/images/spotlight.jpg"
-                alt=""
-                className="w-full h-full object-cover rounded-xl"
-              />
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-black/5 pointer-events-none" />
-            </div>
+            <ResponsiveImage
+              base="/images/spotlight"
+              alt="Benefits spotlight illustration"
+            />
           </motion.div>
         </div>
       </section>
@@ -247,75 +238,76 @@ export default function Home() {
         </div>
       </section>
 
-        {/* Statistics Row to break up text */}
-<section className="relative bg-brand-navy border-y border-brand-stone" aria-label="Key stats">
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-    <div className="grid gap-10 sm:grid-cols-3 text-center">
-      <div>
-        <div className="text-4xl font-bold text-brand-sand">85%</div>
-        <p className="mt-2 text-white/85">of employees say they want simpler benefit choices.</p>
-      </div>
-      <div>
-        <div className="text-4xl font-bold text-brand-sand">3–5 hrs</div>
-        <p className="mt-2 text-white/85">saved by HR teams during each enrollment cycle.</p>
-      </div>
-      <div>
-        <div className="text-4xl font-bold text-brand-sand">70–80%</div>
-        <p className="mt-2 text-white/85">participation rates are common with guided rollout.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      {/* Statistics Row */}
+      <section className="relative bg-brand-navy border-y border-brand-stone" aria-label="Key stats">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid gap-10 sm:grid-cols-3 text-center">
+            <div>
+              <div className="text-4xl font-bold text-brand-sand">85%</div>
+              <p className="mt-2 text-white/85">of employees say they want simpler benefit choices.</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-brand-sand">3–5 hrs</div>
+              <p className="mt-2 text-white/85">saved by HR teams during each enrollment cycle.</p>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-brand-sand">70–80%</div>
+              <p className="mt-2 text-white/85">participation rates are common with guided rollout.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                  {/* PHOTO BREAK 1 — new image to lessen text density */}
-<section className="bg-brand-sand/40 border-y border-brand-stone" aria-label="Lower feature 1">
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
-    <div>
-      <img
-        src="/images/home-lower-1.jpg"
-        alt="Team collaboration"
-        className="rounded-2xl border border-brand-stone shadow-md w-full h-auto object-cover"
-      />
-    </div>
-    <div>
-      <h3 className="font-heading text-2xl text-brand-navy">Collaboration that works</h3>
-      <p className="mt-4 text-brand-charcoal/90">
-        Our process ensures HR, leadership, and employees stay aligned. 
-        With clear communication and ongoing support, benefits become 
-        a shared strength instead of a stress point.
-      </p>
-      <div className="mt-6">
-        <CTARow primaryLabel="See our approach" primaryTo="/services" secondaryTo="/contact" secondaryLabel="Talk to us" />
-      </div>
-    </div>
-  </div>
-</section>
+      {/* PHOTO BREAK 1 — standardized image */}
+      <section className="bg-brand-sand/40 border-y border-brand-stone" aria-label="Lower feature 1">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
+          <div>
+            <ResponsiveImage
+              base="/images/home-lower-1"
+              alt="Team collaboration"
+              className="shadow-md"
+            />
+          </div>
+          <div>
+            <h3 className="font-heading text-2xl text-brand-navy">Collaboration that works</h3>
+            <p className="mt-4 text-brand-charcoal/90">
+              Our process ensures HR, leadership, and employees stay aligned.
+              With clear communication and ongoing support, benefits become
+              a shared strength instead of a stress point.
+            </p>
+            <div className="mt-6">
+              <CTARow primaryLabel="See our approach" primaryTo="/services" secondaryTo="/contact" secondaryLabel="Talk to us" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Existing timeline/testimonials/CTA (kept for polish and flow) */}
       <ProcessTimeline />
-      {/* LOWER FEATURE 2 */}
-<section className="bg-white border-y border-brand-stone" aria-label="Lower feature 2">
-  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
-    <div className="order-2 md:order-1">
-      <h3 className="font-heading text-2xl text-brand-navy">Practical support, year-round</h3>
-      <p className="mt-4 text-brand-charcoal/90">
-        From renewal reviews to compliance check-ins, we help 
-        organizations maintain momentum. Support is baked into the 
-        process, not left as an afterthought.
-      </p>
-      <div className="mt-6">
-        <CTARow primaryLabel="Get support" primaryTo="/contact" secondaryTo="/services" secondaryLabel="Explore services" />
-      </div>
-    </div>
-    <div className="order-1 md:order-2">
-      <img
-        src="/images/home-lower-2.jpg"
-        alt="Overhead desk collaboration"
-        className="rounded-2xl border border-brand-stone shadow-md w-full h-auto object-cover"
-      />
-    </div>
-  </div>
-</section>
+
+      {/* LOWER FEATURE 2 — standardized image */}
+      <section className="bg-white border-y border-brand-stone" aria-label="Lower feature 2">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
+          <div className="order-2 md:order-1">
+            <h3 className="font-heading text-2xl text-brand-navy">Practical support, year-round</h3>
+            <p className="mt-4 text-brand-charcoal/90">
+              From renewal reviews to compliance check-ins, we help
+              organizations maintain momentum. Support is baked into the
+              process, not left as an afterthought.
+            </p>
+            <div className="mt-6">
+              <CTARow primaryLabel="Get support" primaryTo="/contact" secondaryTo="/services" secondaryLabel="Explore services" />
+            </div>
+          </div>
+          <div className="order-1 md:order-2">
+            <ResponsiveImage
+              base="/images/home-lower-2"
+              alt="Overhead desk collaboration"
+              className="shadow-md"
+            />
+          </div>
+        </div>
+      </section>
+
       <TestimonialsBand />
       <CtaBand />
     </>
@@ -341,5 +333,4 @@ function AccordionItem({ title, children }: { title: string; children: React.Rea
       <div className="px-5 pb-5 text-brand-charcoal/90">{children}</div>
     </details>
   );
-  <Footer />
 }
