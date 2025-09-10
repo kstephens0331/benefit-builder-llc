@@ -1,46 +1,7 @@
 ﻿import { Helmet } from "react-helmet-async";
 import CTARow from "../components/CTARow";
 import ContactForm from "../components/ContactForm";
-
-// Local inline icons
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path d="M7 3v4M17 3v4M3 9h18M5 12h14M5 16h8" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
-      <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth={2} />
-    </svg>
-  );
-}
-function CompassIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
-      <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3.5 6.5-2.2 5.3a2 2 0 0 1-1 1l-5.3 2.2 2.2-5.3a2 2 0 0 1 1-1l5.3-2.2Z" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function Step({ icon: Icon, title, children }: { icon: (p: React.SVGProps<SVGSVGElement>) => JSX.Element; title: string; children: React.ReactNode; }) {
-  return (
-    <div className="rounded-2xl border border-brand-stone bg-white p-5">
-      <div className="flex items-start gap-3">
-        <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-green/10 text-brand-green">
-          <Icon className="h-5 w-5" />
-        </span>
-        <div>
-          <h3 className="font-heading text-lg text-brand-navy">{title}</h3>
-          <p className="mt-1 text-brand-charcoal/90">{children}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
+import ResponsiveImage from "../components/ResponsiveImage";
 
 export default function Contact() {
   return (
@@ -53,18 +14,22 @@ export default function Contact() {
         />
       </Helmet>
 
-      {/* HERO (full-bleed; decorative) */}
-      <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[320px]" aria-label="Contact hero">
+      {/* HERO (full-bleed; decorative) — taller vh and adjusted object position to feel 'zoomed out' */}
+      <section
+        className="relative overflow-hidden border-b border-brand-stone/60 min-h-[60vh] md:min-h-[68vh]"
+        aria-label="Contact hero"
+      >
         <img
           src="/images/benefit-builder-contact.jpg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className="absolute inset-0 h-full w-full object-cover"
           fetchPriority="high"
           decoding="async"
+          style={{ objectPosition: "center 35%" }} /* shows more of the image vs. 'object-top' */
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/25 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-          <h1 className="font-heading text-white drop-shadow text-4xl">Get in touch</h1>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <h1 className="font-heading text-white drop-shadow text-4xl md:text-5xl">Get in touch</h1>
           <p className="mt-3 max-w-3xl text-white/90 text-lg">
             Tell us a bit about your goals. We’ll follow up quickly.
           </p>
@@ -143,32 +108,118 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white border-b border-brand-stone" aria-label="Contact FAQ">
+      <section className="bg-white border-b border-brand-stone" aria-label="Common questions">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="font-heading text-2xl text-brand-navy">Frequently asked</h2>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-brand-stone p-5">
-              <h3 className="font-heading text-lg text-brand-navy">How fast will you respond?</h3>
-              <p className="mt-2 text-brand-charcoal/90">We typically reply the same business day, often within a few hours.</p>
-            </div>
-            <div className="rounded-2xl border border-brand-stone p-5">
-              <h3 className="font-heading text-lg text-brand-navy">Do you work with very small teams?</h3>
-              <p className="mt-2 text-brand-charcoal/90">Yes. Whether you have 5 employees or 500, we tailor recommendations to the reality of your team and budget.</p>
-            </div>
-            <div className="rounded-2xl border border-brand-stone p-5">
-              <h3 className="font-heading text-lg text-brand-navy">What if I don’t know where to start?</h3>
-              <p className="mt-2 text-brand-charcoal/90">Start with the form — share a sentence or two about your goals. We’ll guide you from there.</p>
-            </div>
-            <div className="rounded-2xl border border-brand-stone p-5">
-              <h3 className="font-heading text-lg text-brand-navy">Is there any obligation?</h3>
-              <p className="mt-2 text-brand-charcoal/90">No. Our first conversation is simply to understand your situation and explore fit.</p>
-            </div>
+          <h2 className="font-heading text-2xl text-brand-navy">Common questions</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <AccordionItem title="Will this be complicated for HR?">
+              No — we set up communications and enrollment so your team has a simple checklist. We handle the heavy lift.
+            </AccordionItem>
+            <AccordionItem title="Can this work with our current benefits?">
+              Yes. We complement what you already offer and recommend changes only where they help.
+            </AccordionItem>
+            <AccordionItem title="How do we measure success?">
+              We define success up front (clarity, participation, total cost) and review after enrollment and at renewal.
+            </AccordionItem>
+            <AccordionItem title="How fast can we get started?">
+              Quickly. After a brief discovery call we can map next steps and timing aligned to your calendar.
+            </AccordionItem>
           </div>
         </div>
       </section>
 
-      {/* CTA ROW */}
-      <CTARow primaryLabel="Start the conversation" />
+      {/* PHOTO + TRUST NOTE */}
+      <section className="bg-white" aria-label="Team photo">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
+          <div className="md:col-span-3">
+            <h3 className="font-heading text-2xl text-brand-navy">We keep it practical</h3>
+            <p className="mt-4 text-brand-charcoal/90">
+              Clear guidance for employees. Predictable outcomes for leadership. And a rollout HR can rely on.
+            </p>
+            <div className="mt-6">
+              <CTARow
+                primaryLabel="Schedule a quick call"
+                primaryTo="tel:+19362326881"
+                secondaryTo="/services"
+                secondaryLabel="See services"
+                align="left"
+              />
+            </div>
+          </div>
+          <div className="md:col-span-2">
+            <ResponsiveImage src="/images/home-lower-1.jpg" alt="Team collaboration" />
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA — centered with two actions */}
+      <section className="bg-brand-navy" aria-label="Final call to action">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center text-center gap-6">
+          <div>
+            <h2 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h2>
+            <p className="text-white/85 mt-1">Send the form and we’ll follow up shortly.</p>
+          </div>
+          <CTARow
+            align="center"
+            primaryLabel="Contact Us"
+            primaryTo="#top"
+            secondaryLabel="Call (936) 232-6881"
+            secondaryTo="tel:+19362326881"
+          />
+        </div>
+      </section>
     </>
+  );
+}
+
+/** Local components */
+function Step({
+  icon: Icon,
+  title,
+  children,
+}: {
+  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl border border-brand-stone bg-white p-5">
+      <div className="flex items-center gap-3">
+        <Icon className="h-5 w-5 text-brand-green" aria-hidden="true" />
+        <div className="font-semibold text-brand-charcoal">{title}</div>
+      </div>
+      <p className="mt-2 text-brand-charcoal/90">{children}</p>
+    </div>
+  );
+}
+
+function AccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <details className="group rounded-xl border border-brand-stone bg-white open:shadow-sm">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
+        <span className="font-semibold text-brand-charcoal">{title}</span>
+        <svg className="h-5 w-5 text-brand-green transition-transform group-open:rotate-45" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M9 3h2v14H9z" />
+          <path d="M3 9h14v2H3z" />
+        </svg>
+      </summary>
+      <div className="px-5 pb-5 text-brand-charcoal/90">{children}</div>
+    </details>
+  );
+}
+
+function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M9 16.17l-3.88-3.88-1.41 1.41L9 19 20.3 7.71l-1.41-1.41z"/></svg>
+  );
+}
+function CalendarIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M7 2h2v2h6V2h2v2h3a1 1 0 011 1v15a1 1 0 01-1 1H4a1 1 0 01-1-1V5a1 1 0 01-1-1h3V2zm13 8H4v10h16V10zM4 8h16V6H4v2z"/></svg>
+  );
+}
+function CompassIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3.536 6.464l-1.768 4.419-4.419 1.768 1.768-4.419 4.419-1.768z"/></svg>
   );
 }
