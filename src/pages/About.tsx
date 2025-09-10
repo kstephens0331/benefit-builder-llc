@@ -12,7 +12,6 @@ export default function About() {
           name="description"
           content="We design benefits around people and measurable outcomes—clear choices, guided education, and dependable support for employers and employees."
         />
-        {/* Organization JSON-LD for richer search results */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -38,7 +37,6 @@ export default function About() {
         </script>
       </Helmet>
 
-      {/* HERO */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[360px]" aria-label="About hero">
         <img
           src="/images/benefit-builder-about.jpg"
@@ -56,7 +54,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* WHO WE ARE */}
       <section className="bg-white border-b border-brand-stone" aria-label="Who we are">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
           <div>
@@ -78,16 +75,11 @@ export default function About() {
             </div>
           </div>
           <div>
-            {/* Standardized image */}
-            <ResponsiveImage
-              base="/images/benefit-builder-about-1"
-              alt="Team collaborating in a bright office"
-            />
+            <ResponsiveImage src="/images/benefit-builder-about-1.png" alt="Team collaborating in a bright office" />
           </div>
         </div>
       </section>
 
-      {/* WHAT SETS US APART */}
       <section className="bg-brand-sand/40 border-b border-brand-stone" aria-label="What sets us apart">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">What Sets Us Apart</p>
@@ -120,7 +112,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* HOW WE WORK WITH YOU */}
       <section className="bg-white border-b border-brand-stone" aria-label="How we work with you">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
           <div className="order-2 md:order-1">
@@ -146,36 +137,11 @@ export default function About() {
             </div>
           </div>
           <div className="order-1 md:order-2">
-            {/* Standardized image */}
-            <ResponsiveImage
-              base="/images/benefit-builder-about-2"
-              alt="Team collaborating in a bright office"
-            />
+            <ResponsiveImage src="/images/benefit-builder-about-2.png" alt="Team collaborating in a bright office" />
           </div>
         </div>
       </section>
 
-      {/* BLUE BAND — credibility / impact */}
-      <section className="relative bg-brand-navy border-y border-brand-stone" aria-label="Impact">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid gap-10 sm:grid-cols-3 text-center">
-            <div>
-              <div className="text-3xl font-bold text-brand-sand">Clearer Choices</div>
-              <p className="mt-2 text-white/85">Employees understand coverage and enroll with confidence.</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-brand-sand">Predictable Outcomes</div>
-              <p className="mt-2 text-white/85">Leaders gain visibility and control over results and costs.</p>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-brand-sand">Lighter Lift</div>
-              <p className="mt-2 text-white/85">HR gets streamlined rollout and steady support, not extra work.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM / ETHOS */}
       <section className="bg-brand-sand/30 border-y border-brand-stone" aria-label="Team and ethos">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
           <div className="md:col-span-3">
@@ -190,29 +156,24 @@ export default function About() {
             </div>
           </div>
           <div className="md:col-span-2">
-            {/* Already standardized in your original file; leaving as-is */}
-            <ResponsiveImage base="/images/about-ethos-1" alt="Leaders collaborating in a modern space" />
+            <ResponsiveImage src="/images/home-lower-1.jpg" alt="Leaders collaborating in a modern space" />
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="bg-brand-navy" aria-label="Final call to action">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h5 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h5>
             <p className="text-white/85 mt-1">We’ll tailor everything to your goals and workforce.</p>
           </div>
-          <div>
-            <CTARow primaryLabel="Contact Us" primaryTo="/contact" />
-          </div>
+          <div><CTARow primaryLabel="Contact Us" primaryTo="/contact" /></div>
         </div>
       </section>
     </>
   );
 }
 
-/** Local accessible accordion */
 function AccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <details className="group rounded-xl border border-brand-stone bg-white open:shadow-sm">

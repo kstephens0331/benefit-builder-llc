@@ -18,7 +18,7 @@ export default function Home() {
         />
       </Helmet>
 
-      {/* HERO — dedicated image per your request */}
+      {/* HERO */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[520px]">
         <img
           src="/images/benefit-builder-home-hero.jpg"
@@ -26,7 +26,6 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover object-center"
           style={{ transformOrigin: "center" }}
         />
-        {/* layered gradient for readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <motion.h1
@@ -64,11 +63,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUE PROPOSITION — asymmetrical media grid, standardized image */}
+      {/* VALUE PROPOSITION */}
       <section className="relative bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid gap-10 md:grid-cols-5 items-center">
-            {/* Media column */}
             <motion.div
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -77,13 +75,12 @@ export default function Home() {
               className="md:col-span-2"
             >
               <ResponsiveImage
-                base="/images/workplace-stone"
+                src="/images/workplace-stone.jpg"
                 alt="Abstract workplace texture"
                 className="bg-brand-stone/50"
               />
             </motion.div>
 
-            {/* Copy column */}
             <motion.div
               initial={{ opacity: 0, x: 16 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -121,14 +118,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUTCOMES BAND — tasteful KPI style without external references */}
+      {/* OUTCOMES BAND */}
       <section
         className="relative border-y border-brand-stone bg-brand-navy"
         aria-label="Typical outcomes"
       >
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           <img
-            src="/images/workplace-stone.svg"
+            src="/images/workplace-stone.jpg"
             className="w-full h-full object-cover"
             alt=""
           />
@@ -161,15 +158,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROGRAM SPOTLIGHT — standardized image */}
+      {/* SPOTLIGHT */}
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
+          <div>
             <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">
               Spotlight
             </p>
@@ -197,73 +189,23 @@ export default function Home() {
                 secondaryLabel="Request a quick analysis"
               />
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.05 }}
-          >
+          <div>
             <ResponsiveImage
-              base="/images/spotlight"
+              src="/images/spotlight.jpg"
               alt="Benefits spotlight illustration"
             />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS — accessible accordion (no external libs) */}
-      <section className="bg-brand-sand/50 border-y border-brand-stone" aria-label="How it works">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="font-heading text-3xl text-brand-navy">How we work with you</h2>
-          <div className="mt-6 grid gap-4">
-            <AccordionItem title="1) Start with a quick discovery">
-              Share your goals, workforce profile, and current plan pressures. We’ll
-              confirm fit and align on the outcomes that matter most to you.
-            </AccordionItem>
-            <AccordionItem title="2) Receive a tailored design">
-              We model options that balance participation, coverage, and cost—focusing
-              on the benefits employees are most likely to use.
-            </AccordionItem>
-            <AccordionItem title="3) Launch with guided enrollment">
-              We handle plain-language communication, scheduling, and support so your
-              team can enroll with confidence.
-            </AccordionItem>
-            <AccordionItem title="4) Review & support year-round">
-              We stay engaged for renewals, vendor reviews, and ongoing questions—so
-              benefits remain simple and effective.
-            </AccordionItem>
           </div>
         </div>
       </section>
 
-      {/* Statistics Row */}
-      <section className="relative bg-brand-navy border-y border-brand-stone" aria-label="Key stats">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid gap-10 sm:grid-cols-3 text-center">
-            <div>
-              <div className="text-4xl font-bold text-brand-sand">85%</div>
-              <p className="mt-2 text-white/85">of employees say they want simpler benefit choices.</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-brand-sand">3–5 hrs</div>
-              <p className="mt-2 text-white/85">saved by HR teams during each enrollment cycle.</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-brand-sand">70–80%</div>
-              <p className="mt-2 text-white/85">participation rates are common with guided rollout.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PHOTO BREAK 1 — standardized image */}
+      {/* PHOTO BREAK 1 */}
       <section className="bg-brand-sand/40 border-y border-brand-stone" aria-label="Lower feature 1">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <ResponsiveImage
-              base="/images/home-lower-1"
+              src="/images/home-lower-1.jpg"
               alt="Team collaboration"
               className="shadow-md"
             />
@@ -284,7 +226,7 @@ export default function Home() {
 
       <ProcessTimeline />
 
-      {/* LOWER FEATURE 2 — standardized image */}
+      {/* LOWER FEATURE 2 */}
       <section className="bg-white border-y border-brand-stone" aria-label="Lower feature 2">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-2 items-center">
           <div className="order-2 md:order-1">
@@ -300,7 +242,7 @@ export default function Home() {
           </div>
           <div className="order-1 md:order-2">
             <ResponsiveImage
-              base="/images/home-lower-2"
+              src="/images/home-lower-2.jpg"
               alt="Overhead desk collaboration"
               className="shadow-md"
             />
@@ -311,26 +253,5 @@ export default function Home() {
       <TestimonialsBand />
       <CtaBand />
     </>
-  );
-}
-
-/** Accessible, lightweight accordion for this page */
-function AccordionItem({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <details className="group rounded-xl border border-brand-stone bg-white open:shadow-sm">
-      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
-        <span className="font-semibold text-brand-charcoal">{title}</span>
-        <svg
-          className="h-5 w-5 text-brand-green transition-transform group-open:rotate-45"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M9 3h2v14H9z" />
-          <path d="M3 9h14v2H3z" />
-        </svg>
-      </summary>
-      <div className="px-5 pb-5 text-brand-charcoal/90">{children}</div>
-    </details>
   );
 }
