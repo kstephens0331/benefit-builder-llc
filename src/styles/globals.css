@@ -1,18 +1,54 @@
-﻿@tailwind base;
+﻿/* src/styles/globals.css */
+
+/* Tailwind layers */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Fontsource: load variable fonts */
+/* Variable fonts (local import via npm packages) */
 @import "@fontsource-variable/inter/index.css";
 @import "@fontsource-variable/lora/index.css";
 
-/* Map to your design tokens */
-:root{
+/* Font tokens */
+:root {
   --font-heading: "LoraVariable", "Lora", Georgia, serif;
   --font-body: "InterVariable", "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  /* Light theme surface + text (mirrors your Tailwind brand tokens) */
+  --bg: #F5F1E6;       /* brand.sand */
+  --fg: #2E2E2E;       /* brand.charcoal */
 }
-html { font-family: var(--font-body); }
+
+html {
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .font-heading { font-family: var(--font-heading); }
 
-/* (Optional) Smoother rendering */
-html, body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Accessible focus outline fallback */
+:focus-visible {
+  outline: 3px auto -webkit-focus-ring-color;
+}
+
+/* Optional: small prose tweaks that match your brand */
+.prose :where(a):not(:where([class~="not-prose"] *)) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* Prevent image layout shift: recommend adding width/height in markup,
+   but this keeps images from exceeding their frame. */
+img { max-width: 100%; height: auto; display: block; }

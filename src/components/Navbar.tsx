@@ -1,5 +1,4 @@
 ﻿import { NavLink } from "react-router-dom";
-import logo from "../../public/images/benefit-builder-logo.png"; // <-- add your logo file to /src/assets
 
 export default function Navbar() {
   const base = "px-3 py-2 rounded-md text-sm font-medium";
@@ -8,19 +7,23 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-brand-stone">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Left side (Logo + Company name) */}
+        {/* Left: Logo + Company */}
         <div className="flex items-center gap-3">
-          <img
-            src={logo}
-            alt="Benefit Builder LLC Logo"
-            className="h-12 w-12 object-contain"
-          />
+          <a href="/" className="shrink-0" aria-label="Benefit Builder — Home">
+            <img
+              src="/images/benefit-builder-logo.png"
+              alt="Benefit Builder LLC"
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain"
+            />
+          </a>
           <div className="font-heading text-lg tracking-wide text-brand-navy">
             Benefit Builder LLC
           </div>
         </div>
 
-        {/* Right side (Navigation links) */}
+        {/* Right: Links */}
         <div className="flex items-center gap-1">
           {[
             { to: "/", label: "Home" },
