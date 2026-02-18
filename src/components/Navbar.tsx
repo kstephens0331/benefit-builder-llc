@@ -29,6 +29,7 @@ export default function Navbar() {
             { to: "/", label: "Home" },
             { to: "/services", label: "Services" },
             { to: "/about", label: "About" },
+            { to: "/partners", label: "Partners" },
             { to: "/contact", label: "Contact" },
           ].map((x) => (
             <NavLink
