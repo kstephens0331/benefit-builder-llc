@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(test -d functions)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}
