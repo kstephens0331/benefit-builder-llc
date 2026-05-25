@@ -1,68 +1,28 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- Base title for the site (React pages can override with Helmet) -->
-    <title>Benefit Builder, LLC</title>
-    <meta
-      name="description"
-      content="A modern, people-first benefits approach that boosts recruiting, participation, and cost predictability."
-    />
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://benefitbuilder.com/" />
-
-    <!-- Theme color for address bar / PWA -->
+    <!-- Per-route title/description/OG/JSON-LD are injected at build time by vite-react-ssg + Seo component -->
     <meta name="theme-color" content="#1E8053" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="author" content="Benefit Builder LLC" />
 
-    <!-- Favicon: use your logo directly in the browser tab -->
-    <!-- (Make sure this file exists at: public/images/benefit-builder-logo.png) -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="/images/benefit-builder-logo.png"
-    />
-    <!-- Optional: iOS home screen icon also using your logo -->
-    <link
-      rel="apple-touch-icon"
-      href="/images/benefit-builder-logo.png"
-    />
-
-    <!-- Keep the manifest for PWA metadata (icons there can remain as-is) -->
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/icon-192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicons/icon-512.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <!-- Open Graph (nice when your homepage is shared) -->
-    <meta property="og:site_name" content="Benefit Builder, LLC" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Benefit Builder, LLC" />
-    <meta
-      property="og:description"
-      content="A modern, people-first benefits approach that boosts recruiting, participation, and cost predictability."
-    />
-    <meta property="og:url" content="https://benefitbuilder.com/" />
-    <meta
-      property="og:image"
-      content="https://benefitbuilder.com/images/benefit-builder-home-hero.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Benefit Builder, LLC" />
-    <meta
-      name="twitter:description"
-      content="A modern, people-first benefits approach that boosts recruiting, participation, and cost predictability."
-    />
-    <meta
-      name="twitter:image"
-      content="https://benefitbuilder.com/images/benefit-builder-home-hero.jpg"
-    />
+    <!-- Performance: preconnect for analytics (only used in production) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.clarity.ms" />
   </head>
   <body>
     <div id="root"></div>

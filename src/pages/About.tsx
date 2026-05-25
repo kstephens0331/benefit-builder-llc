@@ -1,41 +1,33 @@
-﻿import { Helmet } from "react-helmet-async";
-import Section from "../components/Section";
-import CTARow from "../components/CTARow";
+﻿import CTARow from "../components/CTARow";
 import ResponsiveImage from "../components/ResponsiveImage";
+import Seo from "../lib/seo/Seo";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { findRoute } from "../lib/seo/routes";
+import { organization, localBusiness, webPage, breadcrumbList, person } from "../lib/seo/jsonld";
 
 export default function About() {
+  const r = findRoute("/about")!;
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+  ];
+  const breadcrumb = breadcrumbList(crumbs);
+
   return (
     <>
-      <Helmet>
-        <title>About — Benefit Builder LLC</title>
-        <meta
-          name="description"
-          content="We design benefits around people and measurable outcomes—clear choices, guided education, and dependable support for employers and employees."
-        />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Benefit Builder LLC",
-            "url": "https://benefitbuilder.com",
-            "logo": "https://benefitbuilder.com/images/benefit-builder-logo.jpg",
-            "contactPoint": [{
-              "@type": "ContactPoint",
-              "contactType": "sales",
-              "email": "jamietrauth.bb@gmail.com",
-              "telephone": "+1-936-232-6881"
-            }],
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "14132 FM 1097 Rd West, Suite #300, PMB #164",
-              "addressLocality": "Willis",
-              "addressRegion": "TX",
-              "postalCode": "77318",
-              "addressCountry": "US"
-            }
-          })}
-        </script>
-      </Helmet>
+      <Seo
+        title={r.title}
+        description={r.description}
+        path={r.path}
+        image={r.ogImage}
+        jsonLd={[
+          organization(),
+          person(),
+          localBusiness(),
+          webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+        ]}
+      />
+      <Breadcrumbs crumbs={crumbs} />
 
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[360px]" aria-label="About hero">
         <img
@@ -67,7 +59,7 @@ export default function About() {
               </p>
               <p>
                 Our focus: help employees understand their choices and help organizations achieve
-                predictable, sustainable results—year after year.
+                predictable, sustainable results, year after year.
               </p>
             </div>
             <div className="mt-6">
@@ -95,13 +87,13 @@ export default function About() {
             <div>
               <div className="font-heading text-xl text-brand-navy">Adoption-focused design</div>
               <p className="mt-2 text-brand-charcoal/90">
-                We tailor options employees will actually use—supporting confidence and participation.
+                We tailor options employees will actually use, supporting confidence and participation.
               </p>
             </div>
             <div>
               <div className="font-heading text-xl text-brand-navy">Operational follow-through</div>
               <p className="mt-2 text-brand-charcoal/90">
-                Enrollment, renewals, vendor reviews, and compliance check-ins—handled with care.
+                Enrollment, renewals, vendor reviews, and compliance check-ins, handled with care.
               </p>
             </div>
           </div>
@@ -117,18 +109,18 @@ export default function About() {
           <div className="order-2 md:order-1">
             <h3 className="font-heading text-3xl text-brand-navy">How we work with you</h3>
             <div className="mt-6 grid gap-4">
-              <AccordionItem title="Discovery — align on goals and workforce">
+              <AccordionItem title="Discovery: align on goals and workforce">
                 We start by understanding your organization: the plan you offer today, your goals, and the
                 pressures your teams feel. This ensures every next step is grounded in your reality.
               </AccordionItem>
-              <AccordionItem title="Design — coverage that fits how people enroll">
+              <AccordionItem title="Design: coverage that fits how people enroll">
                 We model options that balance coverage, participation, and cost, focusing on the benefits
                 employees are most likely to use.
               </AccordionItem>
-              <AccordionItem title="Enrollment — plain language and guided choice">
+              <AccordionItem title="Enrollment: plain language and guided choice">
                 Clear messaging and approachable education so employees can decide with confidence.
               </AccordionItem>
-              <AccordionItem title="Support — renewals, vendor reviews, compliance">
+              <AccordionItem title="Support: renewals, vendor reviews, compliance">
                 We stay engaged throughout the year to keep the experience simple and effective.
               </AccordionItem>
             </div>
@@ -148,7 +140,7 @@ export default function About() {
             <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">Our Ethos</p>
             <h4 className="font-heading text-3xl text-brand-navy mt-2">Practical, transparent, accountable</h4>
             <p className="mt-4 text-brand-charcoal/90">
-              We believe benefits should reduce friction—not add to it. That means practical guidance,
+              We believe benefits should reduce friction, not add to it. That means practical guidance,
               transparent options, and accountability you can feel at each step.
             </p>
             <div className="mt-6">
@@ -165,7 +157,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h5 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h5>
-            <p className="text-white/85 mt-1">We’ll tailor everything to your goals and workforce.</p>
+            <p className="text-white/85 mt-1">We will tailor everything to your goals and workforce.</p>
           </div>
           <div><CTARow primaryLabel="Contact Us" primaryTo="/contact" /></div>
         </div>

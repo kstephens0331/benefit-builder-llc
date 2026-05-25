@@ -1,19 +1,47 @@
-﻿import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Section from "../components/Section";
 import CTARow from "../components/CTARow";
 import VideoBlock from "../components/VideoBlock";
 import ResponsiveImage from "../components/ResponsiveImage";
+import Seo from "../lib/seo/Seo";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { findRoute } from "../lib/seo/routes";
+import { service, itemList, webPage, breadcrumbList, financialService } from "../lib/seo/jsonld";
 
 export default function Services() {
+  const r = findRoute("/services")!;
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+  ];
+  const breadcrumb = breadcrumbList(crumbs);
+
   return (
     <>
-      <Helmet>
-        <title>Services — Benefit Builder LLC</title>
-        <meta
-          name="description"
-          content="Simple, people-first benefits that complement your current plan. Clear choices, guided enrollment, and year-round support."
-        />
-      </Helmet>
+      <Seo
+        title={r.title}
+        description={r.description}
+        path={r.path}
+        image={r.ogImage}
+        jsonLd={[
+          itemList([
+            { name: "For Employers", url: "/services/employers" },
+            { name: "For Brokers", url: "/services/brokers" },
+            { name: "Compliance", url: "/compliance" },
+            { name: "Platform", url: "/platform" },
+          ]),
+          service({
+            name: "Section 125 Cafeteria Plan Administration",
+            description:
+              "Pre-tax benefits administration for employers and brokers. Plan documents, NDT, payroll integration, and compliance bundled.",
+            url: "https://benefitbuilderllc.com/services",
+            serviceType: "Section 125 cafeteria plan administration",
+          }),
+          financialService(),
+          webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+        ]}
+      />
+      <Breadcrumbs crumbs={crumbs} />
 
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[380px]" aria-label="Services hero">
         <img
@@ -27,10 +55,39 @@ export default function Services() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           <h1 className="font-heading text-white drop-shadow text-4xl">Services</h1>
           <p className="mt-3 max-w-3xl text-white/90 text-lg">
-            Benefit programs employees understand—and businesses can sustain.
+            Section 125 cafeteria plan administration, broker partnership, and compliance, built for employers across Texas and the United States.
           </p>
           <div className="mt-6">
             <CTARow primaryLabel="Contact Us" primaryTo="/contact" secondaryTo="#video" secondaryLabel="Watch Overview" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white border-b border-brand-stone" aria-label="Choose your path">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <p className="text-sm uppercase tracking-wide text-brand-green font-semibold">Where to start</p>
+          <h2 className="font-heading text-3xl text-brand-navy mt-2">Two ways to work with us</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <Link
+              to="/services/employers"
+              className="group rounded-lg border border-brand-stone bg-brand-sand/30 p-8 transition hover:border-brand-green hover:bg-brand-sand/60"
+            >
+              <h3 className="font-heading text-2xl text-brand-navy">For Employers</h3>
+              <p className="mt-3 text-brand-charcoal/90">
+                Cut FICA payroll tax up to 7.65%, raise employee take-home pay, and keep your plan IRS-compliant. Bundled NDT, plan documents, and platform included.
+              </p>
+              <span className="mt-4 inline-block font-semibold text-brand-green group-hover:underline">Learn more →</span>
+            </Link>
+            <Link
+              to="/services/brokers"
+              className="group rounded-lg border border-brand-stone bg-brand-sand/30 p-8 transition hover:border-brand-green hover:bg-brand-sand/60"
+            >
+              <h3 className="font-heading text-2xl text-brand-navy">For Brokers</h3>
+              <p className="mt-3 text-brand-charcoal/90">
+                Refer or co-broker pre-tax benefits with us. Compliance handled, commissions clear, employers happier. Texas brokers welcome.
+              </p>
+              <span className="mt-4 inline-block font-semibold text-brand-green group-hover:underline">Learn more →</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -45,11 +102,11 @@ export default function Services() {
             <h2 className="font-heading text-3xl text-brand-navy mt-2">Clarity for people, confidence for leaders</h2>
             <div className="prose prose-neutral max-w-none mt-5">
               <p className="text-brand-charcoal/90">
-                We complement your existing plan with options that cover real-world gaps—paired with clear communication and guided enrollment.
+                We complement your existing plan with options that cover real-world gaps, paired with clear communication and guided enrollment.
               </p>
               <ul>
                 <li>Plain-language guidance and simple choices.</li>
-                <li>Participation focused—design for how people actually enroll.</li>
+                <li>Participation focused: design for how people actually enroll.</li>
                 <li>Ongoing support for renewals, vendors, and compliance.</li>
               </ul>
             </div>
@@ -60,7 +117,7 @@ export default function Services() {
         </div>
       </section>
 
-      <Section id="video" kicker="Explainer" title="Benefits, explained in 90–120 seconds" bg="white">
+      <Section id="video" kicker="Explainer" title="Benefits, explained in 90 to 120 seconds" bg="white">
         <div className="flex flex-col md:flex-row md:items-start md:gap-8">
           <VideoBlock size="quarter" caption="A concise overview of who we are, how we work, and what to expect." />
           <div className="mt-6 md:mt-1 md:flex-1">
@@ -86,8 +143,8 @@ export default function Services() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid gap-10 sm:grid-cols-3 text-center">
             <div><div className="text-4xl font-bold text-brand-sand">85%</div><p className="mt-2 text-white/85">of employees prefer simpler benefit choices.</p></div>
-            <div><div className="text-4xl font-bold text-brand-sand">3–5 hrs</div><p className="mt-2 text-white/85">saved by HR per enrollment cycle with guided rollout.</p></div>
-            <div><div className="text-4xl font-bold text-brand-sand">70–80%</div><p className="mt-2 text-white/85">participation is common when communications are clear.</p></div>
+            <div><div className="text-4xl font-bold text-brand-sand">3-5 hrs</div><p className="mt-2 text-white/85">saved by HR per enrollment cycle with guided rollout.</p></div>
+            <div><div className="text-4xl font-bold text-brand-sand">70-80%</div><p className="mt-2 text-white/85">participation is common when communications are clear.</p></div>
           </div>
         </div>
       </section>
@@ -133,37 +190,11 @@ export default function Services() {
         </div>
       </Section>
 
-      <section className="bg-white border-y border-brand-stone" aria-label="For employers">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-5 items-center">
-          <div className="md:col-span-3">
-            <h3 className="font-heading text-3xl text-brand-navy">For Employers</h3>
-            <div className="mt-5 grid gap-6 md:grid-cols-2">
-              <ul className="text-brand-charcoal/90 space-y-2">
-                <li>Clear message for recruiting and retention.</li>
-                <li>Participation that reflects real employee needs.</li>
-                <li>Predictable outcomes and visibility for leadership.</li>
-              </ul>
-              <ul className="text-brand-charcoal/90 space-y-2">
-                <li>Streamlined rollout and scheduling for HR.</li>
-                <li>Year-round support for renewals and vendor reviews.</li>
-                <li>Compliance check-ins built into the process.</li>
-              </ul>
-            </div>
-            <div className="mt-6">
-              <CTARow primaryLabel="Get a quick analysis" primaryTo="/contact" secondaryTo="/contact" secondaryLabel="Request a callback" />
-            </div>
-          </div>
-          <div className="md:col-span-2">
-            <ResponsiveImage src="/images/benefit-builder-services-5.png" alt="Leaders reviewing a benefits strategy" />
-          </div>
-        </div>
-      </section>
-
       <section className="bg-brand-navy" aria-label="Final call to action">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h4>
-            <p className="text-white/85 mt-1">We’ll tailor everything to your goals and workforce.</p>
+            <p className="text-white/85 mt-1">We will tailor everything to your goals and workforce.</p>
           </div>
           <div><CTARow primaryLabel="Contact Us" primaryTo="/contact" /></div>
         </div>

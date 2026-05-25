@@ -1,22 +1,32 @@
-﻿import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import Section from "../components/Section";
 import CTARow from "../components/CTARow";
 import ProcessTimeline from "../components/ProcessTimeline";
 import TestimonialsBand from "../components/TestimonialsBand";
 import CtaBand from "../components/CtaBand";
 import ResponsiveImage from "../components/ResponsiveImage";
+import Seo from "../lib/seo/Seo";
+import { findRoute } from "../lib/seo/routes";
+import { organization, localBusiness, website, webPage, person, financialService } from "../lib/seo/jsonld";
 
 export default function Home() {
+  const r = findRoute("/")!;
   return (
     <>
-      <Helmet>
-        <title>Benefit Builder LLC — Where Benefits Meet Growth.</title>
-        <meta
-          name="description"
-          content="A modern, people-first benefits approach that boosts recruiting, participation, and cost predictability."
-        />
-      </Helmet>
+      <Seo
+        title={r.title}
+        description={r.description}
+        path={r.path}
+        image={r.ogImage}
+        jsonLd={[
+          organization(),
+          person(),
+          localBusiness(),
+          financialService(),
+          website(),
+          webPage({ name: r.title, description: r.description, url: "https://benefitbuilderllc.com/" }),
+        ]}
+      />
 
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[520px]">
@@ -44,7 +54,7 @@ export default function Home() {
             transition={{ delay: 0.08, duration: 0.35 }}
             className="mt-2 max-w-2xl text-white/90 text-lg"
           >
-            We help leaders offer benefits people understand, with a rollout that’s
+            We help leaders offer benefits people understand, with a rollout that is
             simple for HR and sustainable for the business.
           </motion.p>
           <motion.div
@@ -170,9 +180,9 @@ export default function Home() {
             </h3>
             <div className="prose prose-neutral max-w-none mt-5">
               <p className="text-brand-charcoal/90">
-                We tailor supplemental options—like life, accident, critical illness,
-                disability, and gap protection—to complement your existing coverage.
-                The goal: protection employees value, with a rollout that’s simple to
+                We tailor supplemental options like life, accident, critical illness,
+                disability, and gap protection to complement your existing coverage.
+                The goal: protection employees value, with a rollout that is simple to
                 manage.
               </p>
               <ul>
