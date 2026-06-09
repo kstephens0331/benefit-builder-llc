@@ -10,13 +10,13 @@ export default function Hero() {
             Where <span className="text-logoGreen">Benefits</span> Meet Growth.
           </h1>
           <p className="mt-4 text-lg text-charcoal/80">
-            We make benefits easy to choose and easy to use — so your people feel cared for and your business sees real results.
+            We make benefits easy to choose and easy to use -- so your people feel cared for and your business sees real results.
           </p>
           <div className="mt-6 flex gap-3">
             <a href="/contact" className="btn-primary">Book a 15-min consult</a>
             <a href="/services" className="btn-ghost">See what we deliver</a>
           </div>
-          <p className="mt-3 text-sm text-charcoal/70">No pressure — just a clear plan and next steps.</p>
+          <p className="mt-3 text-sm text-charcoal/70">No pressure -- just a clear plan and next steps.</p>
         </motion.div>
 
         <motion.ul className="card grid gap-3" initial={{opacity:0, y:16}} animate={{opacity:1, y:0}} transition={{delay:.05, duration:.5}}>

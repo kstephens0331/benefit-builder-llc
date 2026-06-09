@@ -1,19 +1,66 @@
-﻿export default function Footer() {
+import { Link } from "react-router-dom";
+import { BUSINESS_NAME, PHONE_DISPLAY, PHONE, EMAIL, ADDRESS } from "../lib/seo/site";
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="mt-24 border-t border-brand-stone bg-white/70">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 grid gap-6 md:grid-cols-3 text-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 grid gap-8 md:grid-cols-4 text-sm">
         <div>
-          <div className="font-heading text-lg text-brand-navy">Benefit Builder LLC</div>
-          <p className="mt-2 text-brand-charcoal/80">Where Benefits Meet Growth.</p>
+          <div className="font-heading text-lg text-brand-navy">{BUSINESS_NAME}</div>
+          <p className="mt-2 text-brand-charcoal/80">Section 125 cafeteria plan administration. Texas-based, all-inclusive.</p>
+          <p className="mt-3 text-brand-charcoal/80">
+            {ADDRESS.street}<br />
+            {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postal}
+          </p>
         </div>
+
+        <div>
+          <div className="font-semibold text-brand-charcoal">Services</div>
+          <ul className="mt-3 space-y-2">
+            <li><Link className="hover:text-brand-green" to="/services">Services overview</Link></li>
+            <li><Link className="hover:text-brand-green" to="/services/employers">For employers</Link></li>
+            <li><Link className="hover:text-brand-green" to="/services/brokers">For brokers</Link></li>
+            <li><Link className="hover:text-brand-green" to="/savings-calculator">Savings calculator</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <div className="font-semibold text-brand-charcoal">Company</div>
+          <ul className="mt-3 space-y-2">
+            <li><Link className="hover:text-brand-green" to="/platform">Platform</Link></li>
+            <li><Link className="hover:text-brand-green" to="/compliance">Compliance</Link></li>
+            <li><Link className="hover:text-brand-green" to="/about">About</Link></li>
+            <li><Link className="hover:text-brand-green" to="/partners">Partners</Link></li>
+          </ul>
+        </div>
+
         <div>
           <div className="font-semibold text-brand-charcoal">Contact</div>
-          <p className="mt-2">Jamie Trauth</p>
-          <p><a className="underline text-brand-green" href="mailto:jamietrauth.bb@gmail.com">jamietrauth.bb@gmail.com</a> · 936-232-6881</p>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <a className="text-brand-green hover:underline" href={`mailto:${EMAIL}`}>
+                {EMAIL}
+              </a>
+            </li>
+            <li>
+              <a className="hover:text-brand-green" href={`tel:${PHONE}`}>
+                {PHONE_DISPLAY}
+              </a>
+            </li>
+            <li><Link className="hover:text-brand-green" to="/contact">Contact form</Link></li>
+          </ul>
         </div>
-        <div>
-          <div className="font-semibold text-brand-charcoal">Address</div>
-          <p className="mt-2">14132 FM 1097 Rd West, Suite #300, PMB #164<br/>Willis, TX 77318</p>
+      </div>
+
+      <div className="border-t border-brand-stone">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-3 text-xs text-brand-charcoal/70">
+          <div>&copy; {year} {BUSINESS_NAME}. All rights reserved.</div>
+          <div className="flex items-center gap-4">
+            <Link className="hover:text-brand-green" to="/legal/privacy">Privacy Policy</Link>
+            <Link className="hover:text-brand-green" to="/legal/terms">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>

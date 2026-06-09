@@ -1,6 +1,10 @@
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ExternalLink, Handshake } from "lucide-react";
+import Seo from "../lib/seo/Seo";
+import Breadcrumbs from "../components/Breadcrumbs";
+import CTARow from "../components/CTARow";
+import { findRoute } from "../lib/seo/routes";
+import { service, webPage, breadcrumbList } from "../lib/seo/jsonld";
 
 const fadeIn = {
   initial: { opacity: 0, y: 18 },
@@ -42,14 +46,14 @@ const partners = [
     name: "SACVPN",
     category: "VPN & Cybersecurity",
     description:
-      "Dedicated VPN infrastructure for businesses and individuals who demand real privacy. SACVPN provides private server instances with enterprise-grade encryption and speeds up to 700 Mbps — no shared servers, no data logs.",
+      "Dedicated VPN infrastructure for businesses and individuals who demand real privacy. SACVPN provides private server instances with enterprise-grade encryption and speeds up to 700 Mbps, no shared servers, no data logs.",
     url: "https://sacvpn.com",
   },
   {
     name: "Forge-X",
     category: "Contractor Management",
     description:
-      "A project management platform designed for the trades. Forge-X unites invoicing, scheduling, daily logs, and payment tracking in one clean dashboard — helping contractors and homeowners manage every project stage together.",
+      "A project management platform designed for the trades. Forge-X unites invoicing, scheduling, daily logs, and payment tracking in one clean dashboard, helping contractors and homeowners manage every project stage together.",
     url: "https://forge-x.app",
   },
   {
@@ -84,7 +88,7 @@ const partners = [
     name: "GradeStack",
     category: "SEO & Website Monitoring",
     description:
-      "A self-hosted website audit platform that evaluates performance, SEO, security, accessibility, and best practices — then provides clear, step-by-step guidance on how to resolve each issue. No fluff, just results.",
+      "A self-hosted website audit platform that evaluates performance, SEO, security, accessibility, and best practices, then provides clear, step-by-step guidance on how to resolve each issue. No fluff, just results.",
     url: "https://gradestack.dev",
   },
   {
@@ -104,41 +108,69 @@ const partners = [
 ];
 
 export default function Partners() {
+  const r = findRoute("/partners")!;
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: "Partners", href: "/partners" },
+  ];
+  const breadcrumb = breadcrumbList(crumbs);
+
   return (
     <>
-      <Helmet>
-        <title>Trusted Local Partners | Benefit Builder LLC</title>
-        <meta
-          name="description"
-          content="Benefit Builder LLC is proud to partner with trusted local businesses across Texas. Explore the companies we know, work with, and recommend."
-        />
-      </Helmet>
+      <Seo
+        title={r.title}
+        description={r.description}
+        path={r.path}
+        image={r.ogImage}
+        jsonLd={[
+          service({
+            name: "Broker Partner Program",
+            description: r.description,
+            url: `https://benefitbuilderllc.com${r.path}`,
+            serviceType: "Insurance broker partnership",
+          }),
+          webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+        ]}
+      />
+      <Breadcrumbs crumbs={crumbs} />
 
-      {/* Hero */}
       <section className="relative overflow-hidden border-b border-brand-stone/60 bg-brand-navy py-16">
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeIn}>
             <Handshake className="w-10 h-10 text-brand-sand mb-4" />
             <h1 className="font-heading text-white drop-shadow text-4xl md:text-5xl">
-              Trusted Local Partners
+              Become a Broker Partner
             </h1>
             <p className="mt-3 max-w-3xl text-white/90 text-lg">
-              At Benefit Builder, we work alongside a network of outstanding local businesses.
-              These are companies we trust, recommend, and are proud to call partners.
+              Bring us your employer clients and we administer their pre-tax benefits without competing for the rest of their book. Compliance is handled, the platform is ours, and the economics are easy to explain.
             </p>
+            <div className="mt-6">
+              <CTARow primaryLabel="Start a partnership" primaryTo="/contact" secondaryTo="/services/brokers" secondaryLabel="See the partner program" />
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Partners Grid */}
-      <section className="bg-white border-b border-brand-stone/60">
+      <section className="bg-white border-b border-brand-stone">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <p className="text-sm uppercase tracking-wide text-brand-green font-semibold">Why brokers partner with us</p>
+          <h2 className="font-heading text-3xl text-brand-navy mt-2">Three reasons it works</h2>
+          <div className="mt-6 grid gap-6 md:grid-cols-3 text-brand-charcoal/90">
+            <Card title="We do not sell insurance" body="We administer Section 125. You stay broker of record on every line you write. We never approach your clients about non-125 products." />
+            <Card title="Compliance bundled" body="Plan documents, NDT, salary reduction forms, and audit trail are included. You do not have to scope these out of every renewal." />
+            <Card title="Co-branded everything" body="Enrollment guides, ROI calculators, and savings reports go out under your name. Employers see one team. You stay the relationship lead." />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-brand-sand/40 border-b border-brand-stone">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
           <motion.div {...fadeIn}>
             <p className="text-sm tracking-wide uppercase text-brand-green font-semibold">
-              Our Network
+              Trusted Local Network
             </p>
             <h2 className="font-heading text-3xl text-brand-navy mt-1 mb-8">
-              Companies We Recommend
+              Companies We Know, Work With, and Recommend
             </h2>
           </motion.div>
 
@@ -176,12 +208,11 @@ export default function Partners() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-brand-navy border-b border-brand-stone/60">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 text-center">
           <motion.div {...fadeIn}>
             <h2 className="font-heading text-3xl text-white mb-3">
-              Ready to Optimize Your Benefits?
+              Ready to optimize your clients' benefits?
             </h2>
             <p className="text-white/85 max-w-2xl mx-auto mb-6">
               Benefit Builder helps employers and employees save money through smart
@@ -197,5 +228,14 @@ export default function Partners() {
         </div>
       </section>
     </>
+  );
+}
+
+function Card({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="rounded-lg border border-brand-stone bg-white p-6">
+      <h3 className="font-heading text-xl text-brand-navy">{title}</h3>
+      <p className="mt-3">{body}</p>
+    </div>
   );
 }

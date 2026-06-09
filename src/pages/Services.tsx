@@ -84,7 +84,7 @@ export default function Services() {
             >
               <h3 className="font-heading text-2xl text-brand-navy">For Brokers</h3>
               <p className="mt-3 text-brand-charcoal/90">
-                Refer or co-broker pre-tax benefits with us. Compliance handled, commissions clear, employers happier. Texas brokers welcome.
+                Refer or co-broker pre-tax benefits with us. Compliance handled, you keep your commissions, employers happier. Texas brokers welcome.
               </p>
               <span className="mt-4 inline-block font-semibold text-brand-green group-hover:underline">Learn more →</span>
             </Link>

@@ -93,7 +93,7 @@ export default function ContactForm() {
 
       const json = await res.json().catch(() => ({}));
       if (res.ok && (json as any)?.ok) {
-        setDone({ ok: true, msg: "Thank you — we received your message. We’ll be in touch within one business day." });
+        setDone({ ok: true, msg: "Thank you, we received your message. We will be in touch within one business day." });
         reset();
       } else {
         const msg = (json as any)?.error || "Something went wrong sending your message. Please try again.";
@@ -122,11 +122,11 @@ export default function ContactForm() {
               <CheckCircleIcon className="h-6 w-6" />
             </span>
             <div>
-              <p className="font-semibold text-brand-navy">Thank you — message received.</p>
+              <p className="font-semibold text-brand-navy">Thank you -- message received.</p>
               <p className="mt-1 text-sm text-brand-charcoal/90">
-                We’ll be in contact within one business day. If it’s urgent, call
+                We will be in contact within one business day. If it is urgent, call
                 {" "}
-                <a className="underline decoration-brand-stone hover:text-brand-navy" href="tel:+19362326881">(936) 232-6881</a>.
+                <a className="underline decoration-brand-stone hover:text-brand-navy" href="tel:+19727415663">(972) 741-5663</a>.
               </p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function ContactForm() {
         <div className="mt-1">
           <div
             className="cf-turnstile"
-            data-sitekey={(window as any).TURNSTILE_SITE_KEY || ""}
+            data-sitekey={(typeof window !== "undefined" && (window as any).TURNSTILE_SITE_KEY) || ""}
             data-callback="turnstileCallback"
           ></div>
           <input type="hidden" id="cf-turnstile-token" name="cf_turnstile_response" />
@@ -205,7 +205,9 @@ export default function ContactForm() {
 declare global {
   interface Window { turnstile?: any; TURNSTILE_SITE_KEY?: string; }
 }
-(window as any).turnstileCallback = function (token: string) {
-  const inp = document.getElementById("cf-turnstile-token") as HTMLInputElement | null;
-  if (inp) inp.value = token;
-};
+if (typeof window !== "undefined") {
+  (window as any).turnstileCallback = function (token: string) {
+    const inp = document.getElementById("cf-turnstile-token") as HTMLInputElement | null;
+    if (inp) inp.value = token;
+  };
+}

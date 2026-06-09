@@ -1,20 +1,64 @@
-﻿import { Helmet } from "react-helmet-async";
-import CTARow from "../components/CTARow";
+﻿import CTARow from "../components/CTARow";
 import ContactForm from "../components/ContactForm";
 import ResponsiveImage from "../components/ResponsiveImage";
+import Seo from "../lib/seo/Seo";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { findRoute } from "../lib/seo/routes";
+import {
+  localBusiness,
+  faqPage,
+  webPage,
+  breadcrumbList,
+  type FaqQa,
+} from "../lib/seo/jsonld";
+
+const FAQS: FaqQa[] = [
+  {
+    question: "Will this be complicated for HR?",
+    answer:
+      "No, we set up communications and enrollment so your team has a simple checklist. We handle the heavy lift.",
+  },
+  {
+    question: "Can this work with our current benefits?",
+    answer:
+      "Yes. We complement what you already offer and recommend changes only where they help.",
+  },
+  {
+    question: "How do we measure success?",
+    answer:
+      "We define success up front (clarity, participation, total cost) and review after enrollment and at renewal.",
+  },
+  {
+    question: "How fast can we get started?",
+    answer:
+      "Quickly. After a brief discovery call we can map next steps and timing aligned to your calendar.",
+  },
+];
 
 export default function Contact() {
+  const r = findRoute("/contact")!;
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: "Contact", href: "/contact" },
+  ];
+  const breadcrumb = breadcrumbList(crumbs);
+
   return (
     <>
-      <Helmet>
-        <title>Contact — Benefit Builder, LLC</title>
-        <meta
-          name="description"
-          content="Start a conversation about aligning benefits with growth. Quick form, fast follow-up."
-        />
-      </Helmet>
+      <Seo
+        title={r.title}
+        description={r.description}
+        path={r.path}
+        image={r.ogImage}
+        jsonLd={[
+          localBusiness(),
+          faqPage(FAQS),
+          webPage({ name: r.title, description: r.description, url: `https://benefitbuilderllc.com${r.path}`, breadcrumb }),
+        ]}
+      />
+      <Breadcrumbs crumbs={crumbs} />
 
-      {/* HERO (full-bleed; decorative) — taller vh and adjusted object position to feel 'zoomed out' */}
+      {/* HERO (full-bleed; decorative) -- taller vh and adjusted object position to feel 'zoomed out' */}
       <section
         className="relative overflow-hidden border-b border-brand-stone/60 min-h-[60vh] md:min-h-[68vh]"
         aria-label="Contact hero"
@@ -31,7 +75,7 @@ export default function Contact() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 md:py-20">
           <h1 className="font-heading text-white drop-shadow text-4xl md:text-5xl">Get in touch</h1>
           <p className="mt-3 max-w-3xl text-white/90 text-lg">
-            Tell us a bit about your goals. We’ll follow up quickly.
+            Tell us about your goals. Quotes within one business day. Call (972) 741-5663 or email admin@benefitbuilderllc.com.
           </p>
         </div>
       </section>
@@ -52,12 +96,12 @@ export default function Contact() {
             <div>
               <h3 className="font-heading text-lg text-brand-navy">Primary Contact</h3>
               <p className="text-brand-charcoal/85 mt-2">
-                Jamie Trauth<br />
-                <a className="underline decoration-brand-stone hover:text-brand-navy" href="mailto:jamietrauth.bb@gmail.com">
-                  jamietrauth.bb@gmail.com
+                Bill Dawson<br />
+                <a className="underline decoration-brand-stone hover:text-brand-navy" href="mailto:admin@benefitbuilderllc.com">
+                  admin@benefitbuilderllc.com
                 </a><br />
-                <a className="underline decoration-brand-stone hover:text-brand-navy" href="tel:+19362326881">
-                  (936) 232-6881
+                <a className="underline decoration-brand-stone hover:text-brand-navy" href="tel:+19727415663">
+                  (972) 741-5663
                 </a>
               </p>
             </div>
@@ -66,7 +110,7 @@ export default function Contact() {
               <p className="text-sm text-brand-charcoal/90">
                 Prefer a quick overview first?{" "}
                 <a href="/services#video" className="font-semibold text-brand-navy underline decoration-brand-stone">
-                  Watch our 90–120s explainer
+                  Watch our 90 to 120 second explainer
                 </a>
                 .
               </p>
@@ -98,7 +142,7 @@ export default function Contact() {
               We confirm we received your note and propose a time to talk.
             </Step>
             <Step icon={CalendarIcon} title="Short discovery call">
-              A 20–30 minute call to understand goals, workforce, and current plan.
+              A 20 to 30 minute call to understand goals, workforce, and current plan.
             </Step>
             <Step icon={CompassIcon} title="Next steps">
               We outline options, timeline, and a clear path to enrollment.
@@ -112,18 +156,11 @@ export default function Contact() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
           <h2 className="font-heading text-2xl text-brand-navy">Common questions</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <AccordionItem title="Will this be complicated for HR?">
-              No — we set up communications and enrollment so your team has a simple checklist. We handle the heavy lift.
-            </AccordionItem>
-            <AccordionItem title="Can this work with our current benefits?">
-              Yes. We complement what you already offer and recommend changes only where they help.
-            </AccordionItem>
-            <AccordionItem title="How do we measure success?">
-              We define success up front (clarity, participation, total cost) and review after enrollment and at renewal.
-            </AccordionItem>
-            <AccordionItem title="How fast can we get started?">
-              Quickly. After a brief discovery call we can map next steps and timing aligned to your calendar.
-            </AccordionItem>
+            {FAQS.map((qa) => (
+              <AccordionItem key={qa.question} title={qa.question}>
+                {qa.answer}
+              </AccordionItem>
+            ))}
           </div>
         </div>
       </section>
@@ -139,7 +176,7 @@ export default function Contact() {
             <div className="mt-6">
               <CTARow
                 primaryLabel="Schedule a quick call"
-                primaryTo="tel:+19362326881"
+                primaryTo="tel:+19727415663"
                 secondaryTo="/services"
                 secondaryLabel="See services"
                 align="left"
@@ -152,19 +189,19 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* FINAL CTA — centered with two actions */}
+      {/* FINAL CTA -- centered with two actions */}
       <section className="bg-brand-navy" aria-label="Final call to action">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 flex flex-col items-center text-center gap-6">
           <div>
             <h2 className="font-heading text-2xl text-white">Ready to align benefits with growth?</h2>
-            <p className="text-white/85 mt-1">Send the form and we’ll follow up shortly.</p>
+            <p className="text-white/85 mt-1">Send the form and we will follow up shortly.</p>
           </div>
           <CTARow
             align="center"
             primaryLabel="Contact Us"
             primaryTo="#top"
-            secondaryLabel="Call (936) 232-6881"
-            secondaryTo="tel:+19362326881"
+            secondaryLabel="Call (972) 741-5663"
+            secondaryTo="tel:+19727415663"
           />
         </div>
       </section>

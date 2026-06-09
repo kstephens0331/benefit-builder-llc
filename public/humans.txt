@@ -1,0 +1,15 @@
+/* TEAM */
+Owner: Bill Dawson
+Site: https://benefitbuilderllc.com
+Contact: admin@benefitbuilderllc.com
+Location: Willis, TX, USA
+
+Developer: StephensCode LLC
+Site: https://stephenscode.dev
+Contact: info@stephenscode.dev
+
+/* SITE */
+Last update: 2026-04-27
+Standards: HTML5, CSS3, JavaScript (ES2022)
+Components: Vite, React, TypeScript, Tailwind CSS
+Software: Self-hosted on Caddy + Cloudflare

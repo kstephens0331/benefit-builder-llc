@@ -153,7 +153,7 @@ export function financialService(): JsonLd {
             "@type": "Service",
             name: "Broker Partnership Program",
             description:
-              "Co-broker and referral program for benefits brokers with bundled compliance support.",
+              "Co-broker partner program for benefits brokers with bundled Section 125 compliance support.",
           },
         },
       ],

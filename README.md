@@ -1,71 +1,63 @@
-# Benefit Builder LLC
+# Benefit Builder LLC Website
 
-## Overview
+Marketing website for Benefit Builder LLC, a Section 125 pre-tax benefits administrator based in Texas.
 
-Professional business website for Benefit Builder LLC. Built as a modern, high-performance single-page application with a focus on SEO optimization, accessibility, and smooth user experience. The site features validated contact forms, polished animations, and optimized asset delivery for top Lighthouse scores.
+**Live URL**: https://benefitbuilderllc.com
 
 ## Tech Stack
 
-- **Framework:** React 18 + TypeScript
-- **Build Tool:** Vite 5
-- **Styling:** Tailwind CSS 3
-- **Forms:** React Hook Form + Zod validation
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **SEO:** React Helmet Async
-- **Deployment:** Vercel
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite with vite-react-ssg (prerendered static pages)
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v6
+- **SEO**: react-helmet-async with per-route JSON-LD
+- **Forms**: React Hook Form + Zod
+- **Email**: Gmail via nodemailer (info@stephenscode.dev)
 
-## Features
+## Pages
 
-- **Contact Forms** — Multi-step forms with real-time validation powered by React Hook Form and Zod schemas
-- **SEO Optimization** — Dynamic meta tags, Open Graph support, and structured data via React Helmet Async
-- **Smooth Animations** — Page transitions and scroll-triggered animations using Framer Motion
-- **API Endpoints** — Serverless API routes for form submissions and data handling
-- **Image Optimization** — Lazy loading, responsive images, and modern formats for fast load times
-- **Lighthouse CI** — Automated performance auditing integrated into the build pipeline
-- **Responsive Design** — Mobile-first layout that works across all device sizes
+| Route | Page |
+|-------|------|
+| `/` | Home |
+| `/services` | Services |
+| `/services/employers` | For Employers |
+| `/services/brokers` | For Brokers |
+| `/platform` | Platform |
+| `/savings-calculator` | Savings Calculator |
+| `/compliance` | Compliance |
+| `/about` | About |
+| `/partners` | Partners |
+| `/contact` | Contact |
+| `/legal/privacy` | Privacy Policy |
+| `/legal/terms` | Terms of Service |
 
-## Getting Started
+## Local Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/kstephens0331/benefit-builder-llc.git
-cd benefit-builder-llc
-
-# Install dependencies
 npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm run dev       # http://localhost:5173
+npm run build     # prerender plus sitemap into dist/
+npm run test      # run vitest
+npm run lint      # eslint src/
 ```
 
-## Project Structure
+## Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in values:
 
 ```
-benefit-builder-llc/
-├── public/              # Static assets and favicon
-├── src/
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Route-level page components
-│   ├── hooks/           # Custom React hooks
-│   ├── utils/           # Utility functions and helpers
-│   ├── styles/          # Global styles and Tailwind config
-│   ├── api/             # API endpoint handlers
-│   └── App.tsx          # Root application component
-├── vite.config.ts       # Vite configuration
-├── tailwind.config.js   # Tailwind CSS configuration
-└── tsconfig.json        # TypeScript configuration
+VITE_SITE_URL=https://benefitbuilderllc.com
+GMAIL_USER=info@stephenscode.dev
+GMAIL_APP_PASSWORD=
+MAIL_TO=info@stephenscode.dev
+TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
+VITE_TURNSTILE_SITE_KEY=
 ```
 
-## License
+## Deployment
 
-All rights reserved. Proprietary software developed for Benefit Builder LLC.
+Prerendered static site. Run `npm run build` to produce `dist/`, then sync `dist/` to the Caddy site root on the VA server (`135.148.121.237`), which serves it behind Cloudflare. There is no CI pipeline; deploys are a manual sync of `dist/`.
 
 ---
 

@@ -1,33 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://benefitbuilder.com/</loc>
-    <lastmod>2026-02-19</lastmod>
+    <loc>https://benefitbuilderllc.com/</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-home.png</image:loc>
+    </image:image>
   </url>
   <url>
-    <loc>https://benefitbuilder.com/services</loc>
-    <lastmod>2026-02-19</lastmod>
+    <loc>https://benefitbuilderllc.com/services</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-services.png</image:loc>
+    </image:image>
   </url>
   <url>
-    <loc>https://benefitbuilder.com/about</loc>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://benefitbuilder.com/partners</loc>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://benefitbuilder.com/contact</loc>
-    <lastmod>2026-02-19</lastmod>
+    <loc>https://benefitbuilderllc.com/services/employers</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-employers.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/services/brokers</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-brokers.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/platform</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-platform.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/savings-calculator</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-calculator.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/compliance</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-compliance.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/about</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-about.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/partners</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-partners.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/contact</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-contact.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/legal/privacy</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-privacy.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://benefitbuilderllc.com/legal/terms</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://benefitbuilderllc.com/og/og-terms.png</image:loc>
+    </image:image>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
 ﻿export default function TestimonialsBand() {
   const quotes = [
-    { q:"Clear guidance and real savings—our team finally understands their benefits.", a:"HR Director, Healthcare" },
+    { q:"Clear guidance and real savings--our team finally understands their benefits.", a:"HR Director, Healthcare" },
     { q:"Better coverage and lower costs made recruiting noticeably easier.", a:"COO, Manufacturing" }
   ];
   return (
@@ -9,7 +9,7 @@
         {quotes.map((x,i)=>(
           <figure key={i} className="rounded-xl p-6 bg-brand-sand/50">
             <blockquote className="text-brand-charcoal/90">“{x.q}”</blockquote>
-            <figcaption className="mt-3 text-sm text-brand-navy font-semibold">— {x.a}</figcaption>
+            <figcaption className="mt-3 text-sm text-brand-navy font-semibold">-- {x.a}</figcaption>
           </figure>
         ))}
       </div>

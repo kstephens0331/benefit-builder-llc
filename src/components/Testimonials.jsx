@@ -20,7 +20,7 @@ export default function Testimonials() {
         <h2 className="text-3xl mb-6">What clients say</h2>
         <div className="card">
           <p className="text-lg">“{item.q}”</p>
-          <p className="mt-3 text-sm text-charcoal/70">— {item.a}</p>
+          <p className="mt-3 text-sm text-charcoal/70">-- {item.a}</p>
         </div>
       </div>
     </section>

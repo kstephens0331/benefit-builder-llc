@@ -1,6 +1,6 @@
 ﻿export default function FAQ() {
   const faqs = [
-    { q: "Will this be complicated for HR?", a: "No — we set up enrollment, communications, and documentation. Your team gets a simple checklist and we handle the heavy lift." },
+    { q: "Will this be complicated for HR?", a: "No -- we set up enrollment, communications, and documentation. Your team gets a simple checklist and we handle the heavy lift." },
     { q: "Can this work with our current benefits?", a: "Yes. We complement what you already offer and make changes only where they help." },
     { q: "How do we measure success?", a: "We define success up front (participation, employee satisfaction, total cost) and review after enrollment and at renewal." }
   ];
