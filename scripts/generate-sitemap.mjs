@@ -2,7 +2,7 @@
 // from the single source of truth at src/lib/seo/routes.ts.
 // Run with: `node scripts/generate-sitemap.mjs` after `vite build`.
 
-import { writeFileSync, existsSync, statSync } from "node:fs";
+import { writeFileSync, existsSync, statSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -53,10 +53,23 @@ for (const r of includedRoutes) {
   }
   xml += `  </url>\n`;
 }
+
+// Blog posts from public/data/blog/index.json (single source for posts).
+const blogIndexPath = join(ROOT, "public/data/blog/index.json");
+const blogPosts = existsSync(blogIndexPath) ? JSON.parse(readFileSync(blogIndexPath, "utf8")) : [];
+for (const p of blogPosts) {
+  xml += `  <url>\n`;
+  xml += `    <loc>${SITE_URL}/blog/${p.slug}</loc>\n`;
+  xml += `    <lastmod>${p.date}</lastmod>\n`;
+  xml += `    <changefreq>monthly</changefreq>\n`;
+  xml += `    <priority>0.6</priority>\n`;
+  xml += `    <image:image>\n      <image:loc>${SITE_URL}${p.image}</image:loc>\n    </image:image>\n`;
+  xml += `  </url>\n`;
+}
 xml += `</urlset>\n`;
 
 writeFileSync(join(DIST, "sitemap.xml"), xml, "utf8");
-console.log(`[sitemap] wrote dist/sitemap.xml with ${includedRoutes.length} URLs`);
+console.log(`[sitemap] wrote dist/sitemap.xml with ${includedRoutes.length + blogPosts.length} URLs`);
 
 // sitemap-images.xml (separate, for Google image search)
 let img = `<?xml version="1.0" encoding="UTF-8"?>\n`;
@@ -69,6 +82,16 @@ for (const r of includedRoutes) {
   img += `      <image:loc>${SITE_URL}${r.ogImage}</image:loc>\n`;
   img += `      <image:title>${escapeXml(r.title)}</image:title>\n`;
   img += `      <image:caption>${escapeXml(r.description)}</image:caption>\n`;
+  img += `    </image:image>\n`;
+  img += `  </url>\n`;
+}
+for (const p of blogPosts) {
+  img += `  <url>\n`;
+  img += `    <loc>${SITE_URL}/blog/${p.slug}</loc>\n`;
+  img += `    <image:image>\n`;
+  img += `      <image:loc>${SITE_URL}${p.image}</image:loc>\n`;
+  img += `      <image:title>${escapeXml(p.title)}</image:title>\n`;
+  img += `      <image:caption>${escapeXml(p.excerpt)}</image:caption>\n`;
   img += `    </image:image>\n`;
   img += `  </url>\n`;
 }

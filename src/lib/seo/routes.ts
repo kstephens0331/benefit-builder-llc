@@ -130,6 +130,16 @@ export const ROUTES: RouteDescriptor[] = [
     changefreq: "yearly",
     includeInSitemap: true,
   },
+  {
+    path: "/blog",
+    title: "Section 125 Blog and Guides | Benefit Builder LLC",
+    description:
+      "Plain-language guides on Section 125 pre-tax benefits, FICA savings, and compliance, for employers and the agents who serve them.",
+    ogImage: "/og/og-blog.png",
+    priority: 0.7,
+    changefreq: "weekly",
+    includeInSitemap: true,
+  },
 ];
 
 export function findRoute(path: string): RouteDescriptor | undefined {

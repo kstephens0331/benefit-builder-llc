@@ -328,3 +328,27 @@ export function itemList(items: { name: string; url: string }[]): JsonLd {
     })),
   };
 }
+
+export function article(input: {
+  headline: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  image: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: input.headline,
+    description: input.description,
+    url: input.url,
+    mainEntityOfPage: input.url,
+    datePublished: input.datePublished,
+    dateModified: input.datePublished,
+    image: input.image.startsWith("http") ? input.image : `${SITE_URL}${input.image}`,
+    author: { "@id": `${SITE_URL}/#founder` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    inLanguage: "en-US",
+  };
+}

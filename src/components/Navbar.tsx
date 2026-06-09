@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/platform", label: "Platform" },
   { to: "/compliance", label: "Compliance" },
   { to: "/savings-calculator", label: "Calculator" },
+  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/partners", label: "Partners" },
   { to: "/contact", label: "Contact" },

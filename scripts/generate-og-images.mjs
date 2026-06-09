@@ -187,4 +187,31 @@ for (const r of ROUTES) {
   console.log(`[og] wrote ${filename}`);
   count++;
 }
+
+// Blog OG cards from public/data/blog/index.json (one listing card + one per post).
+// These double as the in-page hero image for each post.
+const blogIndexPath = join(ROOT, "public/data/blog/index.json");
+if (existsSync(blogIndexPath)) {
+  const posts = JSON.parse(readFileSync(blogIndexPath, "utf8"));
+  const cards = [
+    {
+      file: "og-blog.png",
+      title: "Section 125 Insights",
+      subtitle: "Plain-language guides on pre-tax benefits for employers and agents.",
+    },
+    ...posts.map((p) => ({
+      file: `og-blog-${p.slug}.png`,
+      title: p.title.length > 80 ? p.title.slice(0, 78) + "…" : p.title,
+      subtitle: p.excerpt.length > 200 ? p.excerpt.slice(0, 198) + "…" : p.excerpt,
+    })),
+  ];
+  for (const c of cards) {
+    const svg = await satori(template({ title: c.title, subtitle: c.subtitle }), { width: 1200, height: 630, fonts });
+    const png = new Resvg(svg, { fitTo: { mode: "width", value: 1200 }, background: "white" }).render().asPng();
+    writeFileSync(join(OUT_DIR, c.file), png);
+    console.log(`[og] wrote ${c.file}`);
+    count++;
+  }
+}
+
 console.log(`[og] generated ${count} images`);
