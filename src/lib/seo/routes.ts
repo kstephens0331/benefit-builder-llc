@@ -9,7 +9,11 @@ export type RouteDescriptor = {
   noindex?: boolean;
 };
 
-export const ROUTES: RouteDescriptor[] = [
+// Location pages (the /locations silo) supply their own descriptors, appended to
+// ROUTES below so the sitemap and OG generators (which loop ROUTES) include them.
+import { locationRouteDescriptors } from "../locations/locations";
+
+const STATIC_ROUTES: RouteDescriptor[] = [
   {
     path: "/",
     title: "Pre-Tax Benefits Administration | Benefit Builder LLC",
@@ -141,6 +145,8 @@ export const ROUTES: RouteDescriptor[] = [
     includeInSitemap: true,
   },
 ];
+
+export const ROUTES: RouteDescriptor[] = [...STATIC_ROUTES, ...locationRouteDescriptors()];
 
 export function findRoute(path: string): RouteDescriptor | undefined {
   return ROUTES.find((r) => r.path === path);

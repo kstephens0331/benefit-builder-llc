@@ -2,6 +2,7 @@ import type { RouteRecord } from "vite-react-ssg";
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import { getAllSlugs } from "./lib/blog/posts";
+import { getAllStatePaths, getAllCityPaths } from "./lib/locations/locations";
 
 const lazyDefault = (loader: () => Promise<{ default: React.ComponentType }>) =>
   async () => ({ Component: (await loader()).default });
@@ -29,6 +30,17 @@ const routes: RouteRecord[] = [
         path: "blog/:slug",
         lazy: lazyDefault(() => import("./pages/blog/BlogPost")),
         getStaticPaths: () => getAllSlugs().map((s) => `/blog/${s}`),
+      },
+      { path: "locations", lazy: lazyDefault(() => import("./pages/locations/LocationsHub")) },
+      {
+        path: "locations/:state",
+        lazy: lazyDefault(() => import("./pages/locations/StatePage")),
+        getStaticPaths: () => getAllStatePaths(),
+      },
+      {
+        path: "locations/:state/:city",
+        lazy: lazyDefault(() => import("./pages/locations/CityPage")),
+        getStaticPaths: () => getAllCityPaths(),
       },
       // Explicit "/404" so vite-react-ssg prerenders dist/404/index.html.
       // We post-process this into dist/404.html so Caddy can serve it with HTTP 404.

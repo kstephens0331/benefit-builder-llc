@@ -190,6 +190,46 @@ export function localBusiness(): JsonLd {
   };
 }
 
+// LocalBusiness scoped to a specific city, for location pages. Uses the city's
+// own coordinates and area served while keeping the canonical NAP and org ref.
+export function localBusinessInCity(input: {
+  city: string;
+  region: string; // e.g. "TX"
+  latitude: number;
+  longitude: number;
+  url: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "FinancialService"],
+    name: `${BUSINESS_NAME} in ${input.city}, ${input.region}`,
+    url: input.url,
+    image: LOGO_URL,
+    telephone: PHONE,
+    email: EMAIL,
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: ADDRESS.street,
+      addressLocality: ADDRESS.city,
+      addressRegion: ADDRESS.region,
+      postalCode: ADDRESS.postal,
+      addressCountry: ADDRESS.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: input.latitude,
+      longitude: input.longitude,
+    },
+    openingHours: HOURS,
+    areaServed: {
+      "@type": "City",
+      name: `${input.city}, ${input.region}`,
+    },
+    parentOrganization: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
 export function website(): JsonLd {
   return {
     "@context": "https://schema.org",
