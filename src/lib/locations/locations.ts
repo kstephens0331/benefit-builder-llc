@@ -544,6 +544,48 @@ export const CITIES: CityLoc[] = [
   },
 ];
 
+// ---- Hero images -----------------------------------------------------------
+// One unique image per page (no image reused anywhere). Metro pages use genuine
+// city/landscape photos; the rest use professional business scenes. Alt text is
+// honest and never claims a photo is a place it is not. Files live in
+// public/images/locations/hero-<slug>.jpg (slug = state slug, city slug, or "hub").
+// Sources + license: public/images/locations/CREDITS.md (Pexels License).
+
+const HERO_ALT: Record<string, string> = {
+  hub: "A business team meeting in an office",
+  // states
+  missouri: "A business team reviewing documents in a meeting",
+  texas: "The Houston skyline",
+  oklahoma: "A diverse team meeting around a conference table",
+  "new-mexico": "A modern glass office building",
+  ohio: "Two professionals meeting at a desk",
+  michigan: "Downtown Detroit, Michigan",
+  colorado: "The Colorado Rocky Mountains",
+  illinois: "Colleagues working together at an office desk",
+  georgia: "A professional team meeting in an office",
+  // cities
+  "cape-girardeau": "A benefits consultation at an office desk",
+  "poplar-bluff": "Reviewing plan documents at a desk",
+  festus: "A small-business team meeting",
+  conroe: "Reviewing benefit plan paperwork at a desk",
+  houston: "The Houston skyline",
+  baytown: "Reviewing documents in a business meeting",
+  laredo: "A benefits advisor meeting with a client",
+  durant: "A professional meeting at a desk",
+  dayton: "A business meeting in an office",
+  southfield: "Downtown Detroit, near Southfield",
+  centennial: "The Denver skyline, near Centennial",
+  farmington: "A team reviewing documents in an office",
+};
+
+export function heroImageFor(slug: string): string {
+  return `/images/locations/hero-${slug}.jpg`;
+}
+
+export function heroAltFor(slug: string): string {
+  return HERO_ALT[slug] ?? "Benefit Builder, professional benefits administration";
+}
+
 // ---- Helpers ---------------------------------------------------------------
 
 const SITE = "https://benefitbuilderllc.com";

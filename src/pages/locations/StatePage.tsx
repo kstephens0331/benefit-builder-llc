@@ -3,7 +3,7 @@ import Seo from "../../lib/seo/Seo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CTARow from "../../components/CTARow";
 import { service, webPage, breadcrumbList, faqPage } from "../../lib/seo/jsonld";
-import { getState, citiesInState, stateTitle, type StateLoc } from "../../lib/locations/locations";
+import { getState, citiesInState, stateTitle, heroImageFor, heroAltFor, type StateLoc } from "../../lib/locations/locations";
 import { federalMarginalRate, stateMarginalRate, FICA_TOTAL } from "../../lib/tax/savings2026";
 
 // Representative single-filer wage used only to pick illustrative marginal rates.
@@ -78,14 +78,23 @@ export default function StatePage() {
       />
       <Breadcrumbs crumbs={crumbs} />
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-sm uppercase tracking-wide text-brand-green font-semibold">Service Area</p>
-        <h1 className="font-heading text-4xl md:text-5xl text-brand-navy mt-2">
-          Section 125 Pre-Tax Benefits in {s.name}
-        </h1>
-        <p className="mt-4 max-w-3xl text-brand-charcoal/90 text-lg">{s.intro}</p>
-        <div className="mt-6">
-          <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your savings" />
+      <section className="relative overflow-hidden border-b border-brand-stone/60 min-h-[420px] flex items-center">
+        <img
+          src={heroImageFor(s.slug)}
+          alt={heroAltFor(s.slug)}
+          loading="eager"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/35" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 w-full">
+          <p className="text-sm uppercase tracking-wide text-white/80 font-semibold">Service Area</p>
+          <h1 className="font-heading text-4xl md:text-5xl text-white drop-shadow mt-2">
+            Section 125 Pre-Tax Benefits in {s.name}
+          </h1>
+          <p className="mt-4 max-w-3xl text-white/90 text-lg">{s.intro}</p>
+          <div className="mt-6">
+            <CTARow primaryLabel="Get a quote" primaryTo="/contact" secondaryTo="/savings-calculator" secondaryLabel="Estimate your savings" />
+          </div>
         </div>
       </section>
 
