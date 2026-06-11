@@ -1,14 +1,12 @@
 import { useParams, Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import Seo from "../../lib/seo/Seo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CTARow from "../../components/CTARow";
 import BlogCard from "../../components/blog/BlogCard";
 import TableOfContents from "../../components/blog/TableOfContents";
-import { markdownComponents } from "../../components/blog/markdownComponents";
 import { getPost, getRelatedPosts } from "../../lib/blog/posts";
 import { extractHeadings, readTimeMinutes, formatDateUTC } from "../../lib/blog/markdown";
+import { markdownToHtml } from "../../lib/markdownToHtml";
 import { article, webPage, breadcrumbList } from "../../lib/seo/jsonld";
 import { BUSINESS_NAME } from "../../lib/seo/site";
 
@@ -33,6 +31,7 @@ export default function BlogPost() {
   const url = `https://benefitbuilderllc.com${path}`;
   const headings = extractHeadings(post.body);
   const readTime = readTimeMinutes(post.body);
+  const bodyHtml = markdownToHtml(post.body);
   const related = getRelatedPosts(post.slug, 3);
   const crumbs = [
     { name: "Home", href: "/" },
@@ -84,9 +83,7 @@ export default function BlogPost() {
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_260px]">
           <div className="min-w-0">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-              {post.body}
-            </ReactMarkdown>
+            <div className="bb-prose" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
 
             <div className="mt-12 border-t border-brand-stone pt-8">
               <CTARow primaryLabel="Estimate your savings" primaryTo="/savings-calculator" secondaryTo="/contact" secondaryLabel="Contact us" />

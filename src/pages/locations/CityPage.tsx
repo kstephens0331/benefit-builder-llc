@@ -1,11 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import Seo from "../../lib/seo/Seo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CTARow from "../../components/CTARow";
 import ResponsiveImage from "../../components/ResponsiveImage";
-import { markdownComponents } from "../../components/blog/markdownComponents";
 import { service, webPage, breadcrumbList, faqPage, localBusinessInCity } from "../../lib/seo/jsonld";
 import { getCity, getState, cityTitle, heroImageFor, heroAltFor, bodyImageFor, bodyAltFor, type CityLoc, type StateLoc } from "../../lib/locations/locations";
 import { getLocationBody } from "../../lib/locations/content";
@@ -161,9 +158,7 @@ export default function CityPage() {
         <section className="bg-white border-y border-brand-stone">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
             <ResponsiveImage src={bodyImageFor(c.slug)} alt={bodyAltFor(c.slug)} className="mb-8" width={1200} height={800} />
-            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-              {getLocationBody(c.slug)}
-            </ReactMarkdown>
+            <div className="bb-prose" dangerouslySetInnerHTML={{ __html: getLocationBody(c.slug) }} />
           </div>
         </section>
       )}
