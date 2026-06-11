@@ -32,3 +32,24 @@ Each file is used on exactly one page (no image is reused across pages).
 | hero-farmington.jpg | https://www.pexels.com/photo/7648021/ | Team reviewing documents |
 | hero-southfield.jpg | https://www.pexels.com/photo/33755872/ | Downtown Detroit (near Southfield) |
 | hero-centennial.jpg | https://www.pexels.com/photo/33258090/ | Denver skyline (near Centennial) |
+| body-missouri.jpg | https://www.pexels.com/photo/7433853/ | Benefits planning meeting |
+| body-texas.jpg | https://www.pexels.com/photo/4872028/ | Business professionals in an office |
+| body-oklahoma.jpg | https://www.pexels.com/photo/6077069/ | Benefits planning meeting |
+| body-new-mexico.jpg | https://www.pexels.com/photo/18999479/ | Colleagues reviewing benefits on a laptop |
+| body-ohio.jpg | https://www.pexels.com/photo/7580644/ | Handshake closing a benefits agreement |
+| body-michigan.jpg | https://www.pexels.com/photo/2908977/ | Modern office building |
+| body-colorado.jpg | https://www.pexels.com/photo/7654438/ | Team meeting about employee benefits |
+| body-illinois.jpg | https://www.pexels.com/photo/7869118/ | Two professionals in an office |
+| body-georgia.jpg | https://www.pexels.com/photo/7222713/ | Benefits presentation in a meeting |
+| body-cape-girardeau.jpg | https://www.pexels.com/photo/8439651/ | Signing Section 125 plan documents |
+| body-poplar-bluff.jpg | https://www.pexels.com/photo/7640793/ | Reviewing plan paperwork at a desk |
+| body-festus.jpg | https://www.pexels.com/photo/7316743/ | A professional at an office desk |
+| body-conroe.jpg | https://www.pexels.com/photo/8133946/ | A benefits advisor working at a laptop |
+| body-houston.jpg | https://www.pexels.com/photo/12903169/ | A handshake in an office |
+| body-baytown.jpg | https://www.pexels.com/photo/7964413/ | Reviewing benefits at a laptop |
+| body-laredo.jpg | https://www.pexels.com/photo/10041240/ | Reviewing plan details on a laptop |
+| body-durant.jpg | https://www.pexels.com/photo/1181641/ | A professional working in an office |
+| body-dayton.jpg | https://www.pexels.com/photo/8424944/ | A businesswoman in an office |
+| body-southfield.jpg | https://www.pexels.com/photo/5668482/ | A professional working at a computer |
+| body-centennial.jpg | https://www.pexels.com/photo/11861957/ | A modern glass office building |
+| body-farmington.jpg | https://www.pexels.com/photo/1313534/ | Modern office buildings |

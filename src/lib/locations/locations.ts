@@ -586,6 +586,42 @@ export function heroAltFor(slug: string): string {
   return HERO_ALT[slug] ?? "Benefit Builder, professional benefits administration";
 }
 
+// ---- Mid-page images -------------------------------------------------------
+// Long-form body markdown lives in ./content.ts (separate, so the Node sitemap
+// script never imports import.meta.glob). One unique mid-page image per content
+// page (body-<slug>.jpg), never reused.
+const BODY_ALT: Record<string, string> = {
+  missouri: "A benefits planning meeting in an office",
+  texas: "Business professionals in an office",
+  oklahoma: "A Section 125 planning meeting",
+  "new-mexico": "Colleagues reviewing pre-tax benefits on a laptop",
+  ohio: "A handshake closing a benefits agreement",
+  michigan: "A modern office building",
+  colorado: "A team meeting about employee benefits",
+  illinois: "Two professionals working in an office",
+  georgia: "A benefits presentation in a meeting",
+  "cape-girardeau": "Signing Section 125 plan documents at a desk",
+  "poplar-bluff": "Reviewing plan paperwork at a desk",
+  festus: "A professional working at an office desk",
+  conroe: "A benefits advisor working at a laptop",
+  houston: "A handshake in an office",
+  baytown: "Reviewing pre-tax benefits at a laptop",
+  laredo: "Reviewing plan details on a laptop",
+  durant: "A professional working in an office",
+  dayton: "A businesswoman working in an office",
+  southfield: "A professional working at a computer",
+  centennial: "A modern glass office building",
+  farmington: "Modern office buildings",
+};
+
+export function bodyImageFor(slug: string): string {
+  return `/images/locations/body-${slug}.jpg`;
+}
+
+export function bodyAltFor(slug: string): string {
+  return BODY_ALT[slug] ?? "Benefit Builder, professional benefits administration";
+}
+
 // ---- Helpers ---------------------------------------------------------------
 
 const SITE = "https://benefitbuilderllc.com";

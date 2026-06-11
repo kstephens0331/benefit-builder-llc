@@ -1,9 +1,14 @@
 import { useParams, Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Seo from "../../lib/seo/Seo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CTARow from "../../components/CTARow";
+import ResponsiveImage from "../../components/ResponsiveImage";
+import { markdownComponents } from "../../components/blog/markdownComponents";
 import { service, webPage, breadcrumbList, faqPage } from "../../lib/seo/jsonld";
-import { getState, citiesInState, stateTitle, heroImageFor, heroAltFor, type StateLoc } from "../../lib/locations/locations";
+import { getState, citiesInState, stateTitle, heroImageFor, heroAltFor, bodyImageFor, bodyAltFor, type StateLoc } from "../../lib/locations/locations";
+import { getLocationBody } from "../../lib/locations/content";
 import { federalMarginalRate, stateMarginalRate, FICA_TOTAL } from "../../lib/tax/savings2026";
 
 // Representative single-filer wage used only to pick illustrative marginal rates.
@@ -27,6 +32,18 @@ function stateFaq(s: StateLoc, employeeAvoided: number) {
     {
       question: `What kinds of ${s.name} employers use Benefit Builder?`,
       answer: `We work with ${s.verticals} across ${s.name}. Any employer that offers benefits and runs payroll can usually benefit from a pre-tax plan.`,
+    },
+    {
+      question: `What does a Section 125 plan cost a ${s.name} employer?`,
+      answer: `One monthly administration fee covers everything: the plan document, the annual nondiscrimination testing, payroll coordination, support, and employee education. There are no setup fees and no separate testing fees. For most ${s.name} employers the payroll tax savings exceed the fee, often by a wide margin.`,
+    },
+    {
+      question: `Can our current insurance agent stay involved?`,
+      answer: `Yes. Agents and brokers keep 100% of their commissions. Benefit Builder runs the Section 125 administration, compliance, and employee education, so the agent stays the agent of record without taking on the plan work.`,
+    },
+    {
+      question: `How long does it take to set up a plan in ${s.name}?`,
+      answer: `Most plans move quickly. We start with a short discovery call, design the plan around your workforce and pay frequency, prepare the documents for signature, and schedule enrollment. We handle the employee education sessions and the annual testing from there. You can estimate your numbers first with the savings calculator or request a quote.`,
     },
   ];
 }
@@ -123,6 +140,17 @@ export default function StatePage() {
           </p>
         </div>
       </section>
+
+      {getLocationBody(s.slug) && (
+        <section className="bg-white">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
+            <ResponsiveImage src={bodyImageFor(s.slug)} alt={bodyAltFor(s.slug)} className="mb-8" width={1200} height={800} />
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+              {getLocationBody(s.slug)}
+            </ReactMarkdown>
+          </div>
+        </section>
+      )}
 
       <section className="bg-brand-sand/40 border-y border-brand-stone">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">

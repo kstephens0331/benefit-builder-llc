@@ -1,9 +1,14 @@
 import { useParams, Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import Seo from "../../lib/seo/Seo";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import CTARow from "../../components/CTARow";
+import ResponsiveImage from "../../components/ResponsiveImage";
+import { markdownComponents } from "../../components/blog/markdownComponents";
 import { service, webPage, breadcrumbList, faqPage, localBusinessInCity } from "../../lib/seo/jsonld";
-import { getCity, getState, cityTitle, heroImageFor, heroAltFor } from "../../lib/locations/locations";
+import { getCity, getState, cityTitle, heroImageFor, heroAltFor, bodyImageFor, bodyAltFor } from "../../lib/locations/locations";
+import { getLocationBody } from "../../lib/locations/content";
 import { federalMarginalRate, stateMarginalRate, FICA_TOTAL } from "../../lib/tax/savings2026";
 
 const REP_GROSS = 48000;
@@ -118,6 +123,17 @@ export default function CityPage() {
           </p>
         </div>
       </section>
+
+      {getLocationBody(c.slug) && (
+        <section className="bg-white border-y border-brand-stone">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12">
+            <ResponsiveImage src={bodyImageFor(c.slug)} alt={bodyAltFor(c.slug)} className="mb-8" width={1200} height={800} />
+            <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+              {getLocationBody(c.slug)}
+            </ReactMarkdown>
+          </div>
+        </section>
+      )}
 
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
