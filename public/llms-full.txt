@@ -61,6 +61,32 @@ United States. Headquarters: Willis, TX 77318. Phone: (972) 741-5663. Email: adm
 
 Section 125 cafeteria plan, Premium Only Plan, POP plan, Pre-tax benefits administration, FICA savings analysis, Payroll deduction setup, Cafeteria Plan compliance, Non-discrimination testing, NDT for Section 125, Health Savings Account, HSA administration, Flexible Spending Account, FSA administration, Dependent Care FSA, ERISA compliance, Form 5500 filing, Summary Plan Description, Plan adoption agreement, Salary reduction agreement, Employer payroll tax savings, Employee take-home pay optimization, Group benefits broker support.
 
+## Blog and guides
+
+Plain-language education on Section 125 for employers and the insurance agents who serve them. Standard public facts only.
+
+- Section 125 Cafeteria Plan Basics: what a Section 125 plan is, how pre-tax elections work, why employers use them. /blog/section-125-cafeteria-plan-basics
+- How Pre-Tax Benefits Lower Employer FICA Payroll Tax: FICA is 7.65% (Social Security 6.2% to the wage base, Medicare 1.45%); a pre-tax election removes wages from the FICA base, so both employer and employee stop paying 7.65% on those dollars. /blog/how-fica-savings-work-for-employers
+- Which Benefits Qualify for Section 125: insurance premiums, health and dependent care FSAs, HSA contributions, and dependent care assistance qualify; long-term care insurance generally does not. /blog/which-benefits-qualify-for-section-125
+- Premium Only Plans (POP) Explained: the simplest Section 125 plan, covering only the employee share of insurance premiums; common first plan for small employers. /blog/premium-only-plan-pop-explained
+- Section 125 Compliance Checklist for Brokers: plan document, adoption agreement, salary reduction agreements, and annual nondiscrimination testing. /blog/section-125-compliance-checklist-for-brokers
+- Nondiscrimination Testing Explained: the three core NDT families (eligibility, contributions and benefits, key-employee concentration). /blog/nondiscrimination-testing-explained-for-agents
+- How Agents Grow Their Book with Section 125: pre-tax treatment makes worksite products easier to place; agents keep commissions while Benefit Builder runs the admin. /blog/how-agents-grow-their-book-with-section-125
+
+## Service areas and state tax treatment
+
+Benefit Builder administers Section 125 plans across nine states. Section 125 savings come from FICA (7.65%), federal income tax, and the state's income tax, so the savings differ by state.
+
+- Missouri: flat 4.7% state income tax (standard deduction $16,100). Cities served include Cape Girardeau, Poplar Bluff, and Festus. /locations/missouri
+- Texas: no state income tax, so savings come from federal income tax and the 7.65% FICA. Benefit Builder's home state, based in the Conroe and Willis area. Cities served include Conroe, Houston, Baytown, and Laredo. /locations/texas
+- Oklahoma: graduated state income tax topping out at 4.75% (standard deduction $6,520). Durant. /locations/oklahoma
+- New Mexico: graduated state income tax from 1.7% to 5.9% (standard deduction $16,100). Farmington and the Four Corners. /locations/new-mexico
+- Ohio: flat 3.5% state income tax (no standard deduction). Dayton. /locations/ohio
+- Michigan: flat 4.05% state income tax (no standard deduction). Southfield and the Detroit metro. /locations/michigan
+- Colorado: flat 4.4% state income tax (no standard deduction). Centennial and the Denver metro. /locations/colorado
+- Illinois: flat 4.95% state income tax (no standard deduction). /locations/illinois
+- Georgia: flat 5.39% state income tax (standard deduction $16,100). /locations/georgia
+
 ## All key URLs
 
 - https://benefitbuilderllc.com/
@@ -73,6 +99,8 @@ Section 125 cafeteria plan, Premium Only Plan, POP plan, Pre-tax benefits admini
 - https://benefitbuilderllc.com/about
 - https://benefitbuilderllc.com/partners
 - https://benefitbuilderllc.com/contact
+- https://benefitbuilderllc.com/blog
+- https://benefitbuilderllc.com/locations
 - https://benefitbuilderllc.com/legal/privacy
 - https://benefitbuilderllc.com/legal/terms
 - https://benefitbuilderllc.com/sitemap.xml

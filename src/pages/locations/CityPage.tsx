@@ -82,6 +82,7 @@ export default function CityPage() {
         description={c.metaDescription}
         path={path}
         image={`/og/og-loc-${c.stateSlug}-${c.slug}.png`}
+        preloadImage={heroImageFor(c.slug)}
         jsonLd={[
           localBusinessInCity({ city: c.city, region: c.code, latitude: c.lat, longitude: c.lon, url }),
           service({
@@ -101,6 +102,7 @@ export default function CityPage() {
           src={heroImageFor(c.slug)}
           alt={heroAltFor(c.slug)}
           loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/35" />

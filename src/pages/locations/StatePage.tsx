@@ -82,6 +82,7 @@ export default function StatePage() {
         description={s.metaDescription}
         path={path}
         image={`/og/og-loc-${s.slug}.png`}
+        preloadImage={heroImageFor(s.slug)}
         jsonLd={[
           service({
             name: `Section 125 Administration in ${s.name}`,
@@ -100,6 +101,7 @@ export default function StatePage() {
           src={heroImageFor(s.slug)}
           alt={heroAltFor(s.slug)}
           loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/35" />

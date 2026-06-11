@@ -25,6 +25,7 @@ export default function LocationsHub() {
         description={DESCRIPTION}
         path={path}
         image="/og/og-loc-hub.png"
+        preloadImage={heroImageFor("hub")}
         jsonLd={[
           webPage({ name: TITLE, description: DESCRIPTION, url, breadcrumb }),
           itemList(STATES.map((s) => ({ name: stateTitle(s).split("|")[0].trim(), url: `/locations/${s.slug}` }))),
@@ -37,6 +38,7 @@ export default function LocationsHub() {
           src={heroImageFor("hub")}
           alt={heroAltFor("hub")}
           loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/35" />

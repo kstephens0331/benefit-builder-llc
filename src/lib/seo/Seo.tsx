@@ -12,6 +12,8 @@ export type SeoProps = {
   type?: "website" | "article";
   noindex?: boolean;
   jsonLd?: JsonLdObject[];
+  /** LCP hero image to preload at high priority (improves Largest Contentful Paint). */
+  preloadImage?: string;
 };
 
 export default function Seo({
@@ -23,6 +25,7 @@ export default function Seo({
   type = "website",
   noindex = false,
   jsonLd = [],
+  preloadImage,
 }: SeoProps) {
   const url = `${SITE_URL}${path}`;
   const ogImage = image
@@ -39,6 +42,9 @@ export default function Seo({
       <meta name="description" content={description} />
       <meta name="robots" content={robots} />
       <link rel="canonical" href={url} />
+      {preloadImage ? (
+        <link rel="preload" as="image" href={preloadImage} fetchPriority="high" />
+      ) : null}
 
       <meta property="og:site_name" content={BUSINESS_NAME} />
       <meta property="og:type" content={type} />

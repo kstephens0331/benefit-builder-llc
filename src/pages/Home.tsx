@@ -18,6 +18,7 @@ export default function Home() {
         description={r.description}
         path={r.path}
         image={r.ogImage}
+        preloadImage="/images/benefit-builder-home-hero.jpg"
         jsonLd={[
           organization(),
           person(),
@@ -33,6 +34,7 @@ export default function Home() {
         <img
           src="/images/benefit-builder-home-hero.jpg"
           alt=""
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
           style={{ transformOrigin: "center" }}
         />
