@@ -1,0 +1,23 @@
+## Why Dayton employers use Section 125
+
+Dayton is the seat of Montgomery County, in the Miami Valley region of southwest Ohio. The local economy is rooted in aerospace and advanced manufacturing, sitting alongside a strong healthcare sector and a deep base of small businesses that anchor neighborhoods across the metro. For these established payrolls, a Section 125 cafeteria plan is a practical fit. When employees pay for qualified benefits through pre-tax payroll elections, those dollars come out before income and payroll taxes are calculated. That raises take-home pay for the worker and reduces the employer's share of FICA on the same wages.
+
+The math matters in Ohio. Pre-tax elections shrink the wage base that federal income tax, the 7.65% FICA, and Ohio's state income tax all apply to. Ohio levies a flat 3.5% state income tax, and because Ohio provides no standard deduction, that state tax reaches the first dollar of wages. Stacked on top of federal income tax and FICA, the combined burden on each payroll dollar is meaningful, so moving qualified spending to a pre-tax basis produces real savings for Dayton employers and their employees alike. The same advantages apply to employers in neighboring Kettering, Huber Heights, and Beavercreek, where Benefit Builder serves businesses across the Miami Valley.
+
+## Section 125 for Dayton's manufacturers and offices
+
+Manufacturers and office employers with steady, predictable payrolls are among the strongest candidates for a Section 125 cafeteria plan. The reason is straightforward: the employer FICA savings scale directly with participation. The more eligible employees who enroll and elect benefits pre-tax, the larger the cumulative reduction in the employer's FICA liability. A shop floor of hourly workers or an office of salaried staff both generate consistent wage bases that a well-run cafeteria plan can convert into ongoing tax savings month after month.
+
+The challenge for most employers is not the concept but the execution. Enrollment only delivers savings if employees understand the plan and actually elect their benefits, and if every election is coordinated correctly with each payroll run. Benefit Builder handles both sides of that work. We run the payroll coordination so deductions are applied accurately every cycle, and we deliver the employee education that keeps participation high. Strong enrollment is what turns a Section 125 plan from a document into a measurable line of FICA savings for Dayton employers.
+
+## What Benefit Builder handles for Dayton employers
+
+Benefit Builder is a third party administrator, so your team is not left managing plan compliance on its own. One monthly fee covers the full administrative package: the plan document, the adoption agreement, the salary reduction agreements for each participating employee, annual nondiscrimination testing, payroll coordination, and ongoing employee education. We keep the paperwork current, the testing on schedule, and the deductions aligned with payroll, so your Section 125 cafeteria plan stays in good standing without adding to your internal workload.
+
+For the full Ohio tax breakdown, including how the flat 3.5% state income tax interacts with federal income tax and FICA across pay frequencies, see our [Ohio state page](/locations/ohio). To review exactly how we keep your plan compliant, including the nondiscrimination testing and documentation we manage on your behalf, visit our [compliance overview](/compliance). And if you want to put numbers to your own payroll before you talk to us, our [savings calculator](/savings-calculator) estimates the FICA savings a cafeteria plan can generate for a workforce of your size.
+
+## Who we serve around Dayton
+
+Benefit Builder works with manufacturers, healthcare providers, professional services firms, and small businesses across Montgomery County and the surrounding Miami Valley communities. Whether you run a production facility, a clinic, a law or accounting office, or a growing local company, the same pre-tax benefits structure applies, and the same employer FICA savings follow strong enrollment.
+
+We also work alongside the insurance agents and brokers who already serve Dayton employers. A Section 125 cafeteria plan complements the coverage an agent places rather than competing with it, and agents keep their commissions when they bring Benefit Builder in to administer the plan. If you advise local employers and want a TPA partner for the pre-tax side, see our [information for brokers](/services/brokers). If you are a Dayton employer ready to see what a cafeteria plan would do for your payroll, [contact us](/contact) and we will walk through your numbers and the setup process.

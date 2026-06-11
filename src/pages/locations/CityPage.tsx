@@ -7,7 +7,7 @@ import CTARow from "../../components/CTARow";
 import ResponsiveImage from "../../components/ResponsiveImage";
 import { markdownComponents } from "../../components/blog/markdownComponents";
 import { service, webPage, breadcrumbList, faqPage, localBusinessInCity } from "../../lib/seo/jsonld";
-import { getCity, getState, cityTitle, heroImageFor, heroAltFor, bodyImageFor, bodyAltFor } from "../../lib/locations/locations";
+import { getCity, getState, cityTitle, heroImageFor, heroAltFor, bodyImageFor, bodyAltFor, type CityLoc, type StateLoc } from "../../lib/locations/locations";
 import { getLocationBody } from "../../lib/locations/content";
 import { federalMarginalRate, stateMarginalRate, FICA_TOTAL } from "../../lib/tax/savings2026";
 
@@ -15,6 +15,36 @@ const REP_GROSS = 48000;
 
 function pct(n: number): string {
   return `${(n * 100).toFixed(n * 100 >= 10 ? 1 : 2)}%`;
+}
+
+function cityFaq(c: CityLoc, s: StateLoc) {
+  const near = c.neighbors.length > 0 ? `, including ${c.neighbors.join(", ")}` : "";
+  return [
+    {
+      question: `Do you work with ${c.city} employers?`,
+      answer: `Yes. Benefit Builder administers Section 125 cafeteria plans for employers in ${c.city} and the surrounding ${c.county} area${near}.`,
+    },
+    {
+      question: `What does a Section 125 plan save a ${c.city} employer?`,
+      answer: `The employer avoids its 7.65% FICA payroll tax on every qualified pre-tax dollar, and employees avoid federal income tax and ${s.name} state income tax on the same dollars. The exact figure depends on pay and participation, so the fastest way to know is to run your roster on the savings calculator.`,
+    },
+    {
+      question: `Who handles the compliance and nondiscrimination testing?`,
+      answer: `Benefit Builder does. The plan document, adoption agreement, salary reduction agreements, annual nondiscrimination testing, payroll coordination, and audit-ready recordkeeping are all included in one monthly fee, so a ${c.city} employer does not take on the administration.`,
+    },
+    {
+      question: `Can our ${c.city} business keep its current insurance agent?`,
+      answer: `Yes. Agents and brokers keep 100% of their commissions. Benefit Builder runs the Section 125 administration and employee education, so the agent stays the agent of record without the plan work.`,
+    },
+    {
+      question: `How does ${s.name} state tax affect the savings?`,
+      answer: s.taxNote,
+    },
+    {
+      question: `How do we get started in ${c.city}?`,
+      answer: `Start with a short discovery call. We design the plan around your workforce and pay frequency, prepare the documents for signature, and run enrollment and the annual testing. Estimate your numbers first with the savings calculator, or request a quote and we will prepare a figure for your roster.`,
+    },
+  ];
 }
 
 export default function CityPage() {
@@ -35,6 +65,7 @@ export default function CityPage() {
   const fed = federalMarginalRate(REP_GROSS);
   const st = stateMarginalRate(c.code, REP_GROSS);
   const employeeAvoided = FICA_TOTAL + fed + st;
+  const faq = cityFaq(c, s);
 
   const crumbs = [
     { name: "Home", href: "/" },
@@ -60,7 +91,7 @@ export default function CityPage() {
             serviceType: "Section 125 cafeteria plan administration",
           }),
           webPage({ name: cityTitle(c), description: c.metaDescription, url, breadcrumb }),
-          faqPage(c.faq),
+          faqPage(faq),
         ]}
       />
       <Breadcrumbs crumbs={crumbs} />
@@ -139,7 +170,7 @@ export default function CityPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
           <h2 className="font-heading text-3xl text-brand-navy">Common questions</h2>
           <div className="mt-6 space-y-6 max-w-3xl">
-            {c.faq.map((qa) => (
+            {faq.map((qa) => (
               <div key={qa.question}>
                 <h3 className="font-heading text-lg text-brand-navy">{qa.question}</h3>
                 <p className="mt-2 text-brand-charcoal/90">{qa.answer}</p>
