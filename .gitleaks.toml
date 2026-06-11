@@ -1,0 +1,12 @@
+# gitleaks config for this repo. Extends the default ruleset and allowlists
+# known-public, client-side identifiers that are meant to be embedded in HTML
+# and are not secrets.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public client-side analytics IDs (embedded in page HTML by design, not secrets)"
+regexes = [
+  # Ahrefs Web Analytics site key (public, rendered on every page)
+  '''9htXn761LKqW5lzVS2IBSg''',
+]
